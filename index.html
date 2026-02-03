@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Jasa Pembuatan Website & Landing Page Speed Setan (<0.5s) | Anti-Hack Red Team Standard</title>
+    <meta name="description" content="Stop bakar uang iklan di website lambat! Beralih ke Protokol Titan V4: Landing Page Pure HTML, Speed < 0.5 detik, dan keamanan standar Pentester. Tanpa plugin, tanpa database.">
+    <meta name="keywords" content="jasa pembuatan website cepat, jasa landing page html, website anti hack, jasa landing page high conversion, web developer red team, optimasi speed website">
+    <meta name="author" content="[NAMA BRAND/AGENSI ANDA] - Master Sutato">
+    <meta name="robots" content="index, follow">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "[NAMA BRAND/AGENSI ANDA]",
+      "image": "[URL_LOGO_ANDA]",
+      "@id": "[URL_WEBSITE_ANDA]",
+      "url": "[URL_WEBSITE_ANDA]",
+      "telephone": "628xxxxxxx",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Alamat Basis Operasi",
+        "addressLocality": "Ciledug",
+        "addressRegion": "Banten",
+        "postalCode": "XXXXX",
+        "addressCountry": "ID"
+      },
+      "priceRange": "$$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    }
+    </script>
+
+    <style>
+        /* --- VARIABLES (RED TEAM THEME) --- */
+        :root {
+            --color-bg-main: #0a0a0a; /* Hitam pekat */
+            --color-bg-secondary: #111111; /* Hitam agak terang */
+            --color-accent: #00ff88; /* Hijau Neon Cyber */
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #cccccc;
+            --section-spacing: 80px;
+            --container-width: 1100px;
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--color-bg-main);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-weight: 800; line-height: 1.2; color: var(--color-text-primary); }
+        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        h2 { font-size: 2rem; margin-bottom: 1rem; position: relative; display: inline-block; }
+        h2::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 60px; height: 3px; background: var(--color-accent); }
+        p { margin-bottom: 1.5rem; color: var(--color-text-secondary); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- UTILITIES --- */
+        .container { width: 90%; max-width: var(--container-width); margin: 0 auto; }
+        .text-center { text-align: center; }
+        .text-accent { color: var(--color-accent); }
+        .section-pad { padding: var(--section-spacing) 0; }
+        .hidden { display: none; }
+
+        /* --- COMPONENTS --- */
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-accent);
+            color: var(--color-bg-main);
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+            border: 2px solid var(--color-accent);
+        }
+        .btn:hover {
+            background: transparent;
+            color: var(--color-accent);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.6);
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px); /* Hati-hati, ini agak berat, tapi visual bagus. Hapus jika ingin speed absolut. */
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        /* --- HEADER & NAV --- */
+        .site-header {
+            padding: 1rem 0;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Hybrid Logo Structure */
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        .logo-icon-svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            fill: var(--color-accent);
+        }
+
+        /* --- SECTIONS --- */
+        /* Hero Section */
+        #hero {
+            padding-top: 140px; /* Mobile fix agar tidak ketabrak header */
+            padding-bottom: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--color-bg-main), var(--color-bg-secondary));
+            position: relative;
+            overflow: hidden;
+        }
+        /* Background Element (Optional: Bisa diganti gambar atau dihapus untuk speed) */
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: -20%; right: -20%;
+            width: 50%; height: 50%;
+            background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+            opacity: 0.1;
+            filter: blur(100px);
+            z-index: 0;
+        }
+
+        /* Feature Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-icon {
+            width: 50px; height: 50px; margin-bottom: 1rem;
+            fill: var(--color-accent);
+        }
+
+        /* Authority Section */
+        .authority-flex {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        .auth-img-box img {
+            width: 100%; max-width: 400px; border-radius: 12px;
+            border: 2px solid var(--color-accent);
+        }
+
+        /* Offer Section */
+        .offer-list li {
+            margin-bottom: 1rem;
+            display: flex; align-items: flex-start;
+        }
+        .check-icon {
+            color: var(--color-accent); margin-right: 10px; font-weight: bold;
+        }
+
+        /* --- FOOTER & HIDDEN BLOCK --- */
+        footer {
+            background: var(--color-bg-secondary);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-links a { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--color-accent); }
+
+        /* TITAN HIDDEN SEO BLOCK (The Secret Sauce) */
+        .seo-hidden-block {
+            background-color: #050505; /* Sangat gelap, hampir menyatu dengan background */
+            color: #222; /* Kontras sangat rendah, tapi ada */
+            font-size: 10px; /* Ukuran kecil */
+            line-height: 1.2;
+            padding: 10px;
+            margin-top: 20px;
+            border-top: 1px solid #111;
+            text-align: center;
+            /* PENTING: Jangan gunakan display:none atau visibility:hidden */
+            opacity: 0.7; 
+        }
+
+        /* --- STICKY WA BUTTON --- */
+        .sticky-wa {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            background-color: #25D366; /* WA Green */
+            color: white;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+        .sticky-wa:hover { transform: scale(1.1); }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            .section-pad { padding: 50px 0; }
+            .authority-flex { flex-direction: column; }
+            .auth-img-box img { max-width: 100%; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <div class="logo-brand">
+                <svg class="logo-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                <span>[NAMA BRAND/AGENSI ANDA]</span>
+            </div>
+            </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container" style="position: relative; z-index: 1;">
+                <div class="hero-content text-center">
+                    <h1 class="text-accent">STOP Bakar Uang Iklan di Website yang Lambat & Mudah Diretas.</h1>
+                    <p style="font-size: 1.2rem; color: #fff;">Revolusi <strong>Protokol Titan Legacy V4</strong>. Arsitektur Landing Page Pure HTML dengan Kecepatan < 0.5 Detik. Tanpa Plugin. Tanpa Database. Tanpa Kompromi.</p>
+                    <br>
+                    <a href="https://wa.me/628xxxxxxx?text=Halo%20Tim%20Titan,%20saya%20mau%20lihat%20demo%20website%20kecepatan%20setan%20dan%20konsultasi%20keamanan." class="btn">[LIHAT DEMO "WUSSS" - KLIK DI SINI]</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="problem" class="section-pad" style="background: var(--color-bg-secondary);">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Kenapa Iklan Anda Sering <span class="text-accent">Boncos</span>?</h2>
+                    <p>Riset Google membuktikan <strong>53% pengunjung menutup website jika loading lebih dari 3 detik.</strong> Jika website WordPress/CMS Anda mengalami ini, itu adalah LIABILITAS, bukan aset.</p>
+                </div>
+                <div class="grid-3">
+                    <div class="glass-card">
+                        <h3>❌ Loading Muter-Muter</h3>
+                        <p>Terlalu banyak plugin sampah (bloatware) membuat pengunjung kabur sebelum melihat penawaran Anda.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3>❌ Teror Malware</h3>
+                        <p>Website tiba-tiba berubah jadi iklan judi atau obat kuat karena celah keamanan pada plugin yang tidak di-update.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3>❌ Biaya Siluman</h3>
+                        <p>Tiap bulan harus bayar biaya maintenance hanya untuk update plugin yang sebenarnya tidak perlu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="section-pad">
+            <div class="container text-center">
+                <h2>Kami Membangun <span class="text-accent">BENTENG DIGITAL</span>.</h2>
+                <p class="text-accent" style="font-weight: bold; font-size: 1.1rem;">Perkenalkan: TITAN LEGACY V4 - DIAMOND EDITION</p>
+                <p>Standar baru pembuatan Landing Page dengan metode <strong>Hand-Coded (Koding Manual) Pure HTML</strong>. Kami membuang semua "lemak" yang tidak perlu.</p>
+                
+                <div class="grid-3" style="text-align: left;">
+                    <div class="glass-card">
+                        <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 8.88 3.8l.88-1.32c-3.7.66-6.84 3.34-7.9 7.15 1.85 6.85 8.95 9.48 14.28 5.7a10.03 10.03 0 0 0 4.24-6.76zM13 13v7h-2v-7H8l4-6 4 6h-3z"/></svg>
+                        <h3>Speed Setan (< 0.5 Detik)</h3>
+                        <p>Pengunjung belum berkedip, website sudah tampil. Konversi iklan naik drastis karena nol hambatan loading.</p>
+                    </div>
+                    <div class="glass-card">
+                        <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                        <h3>Security Level Red Team</h3>
+                        <p>Pure HTML = Tanpa Database. Hacker TIDAK BISA melakukan SQL Injection atau Brute Force Login. Website Anda aman.</p>
+                    </div>
+                    <div class="glass-card">
+                        <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        <h3>Hybrid SEO Ready</h3>
+                        <p>Struktur kode yang sangat disukai Google, dilengkapi strategi <em>Hidden Content Block</em> untuk dominasi kata kunci.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="authority" class="section-pad" style="background: var(--color-bg-secondary);">
+            <div class="container authority-flex">
+                <div class="auth-img-box">
+                    <img src="placeholder-authority.jpg" alt="Master Sutato Pentester Specialist" width="400" height="400" loading="lazy">
+                </div>
+                <div>
+                    <h2>Siapa Di Balik Layar?</h2>
+                    <p>Layanan ini dipimpin oleh Praktisi Keamanan Siber (<strong>Red Team/Pentester</strong>) dan Strategi Sales.</p>
+                    <p>Filosofi kami sederhana: <strong>WORK, FAIR, TRANSPARAN.</strong></p>
+                    <p>Kami membangun website dengan pola pikir <em>Attacker</em> (Penyerang): Kami tahu di mana celah masuknya, jadi kami menutupnya rapat-rapat saat membangun fondasi bisnis Anda.</p>
+                    <p class="text-accent">Kami tidak bermain di area "Desain Cantik tapi Berat". Kami bermain di area <strong>PERFORMA & PROFIT.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="offer" class="section-pad">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Paket Deployment: <span class="text-accent">TITAN DIAMOND</span></h2>
+                    <p>Investasi Sekali Bayar untuk Aset Digital Jangka Panjang.</p>
+                </div>
+                
+                <div class="grid-3">
+                    <div class="glass-card" style="grid-column: span 2;">
+                        <h3>✅ Apa yang Anda Dapatkan?</h3>
+                        <ul class="offer-list">
+                            <li><span class="check-icon">✓</span> 1 Page HTML High-Performance (Hand-coded).</li>
+                            <li><span class="check-icon">✓</span> Garansi Google Speed Score 90-100 (Mobile/Desktop).</li>
+                            <li><span class="check-icon">✓</span> Hub & Spoke Ready Structure (Siap untuk ekspansi SEO).</li>
+                            <li><span class="check-icon">✓</span> Integrasi WhatsApp Rotator / Form.</li>
+                            <li><span class="check-icon">✓</span> <strong>BONUS:</strong> Hak Milik Penuh Source Code & Opsi Hosting CDN Gratis.</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card" style="border-color: var(--color-accent);">
+                        <h3>⚖️ ATURAN MAIN (Fair Policy)</h3>
+                        <ul class="offer-list" style="font-size: 0.9rem;">
+                            <li><span class="check-icon">!</span> <strong>No Design Drama:</strong> Layout menggunakan standar psikologi konversi (AIDA), bukan selera artistik subjektif.</li>
+                            <li><span class="check-icon">!</span> <strong>Revisi Terbatas:</strong> Hanya pada Teks & Gambar. Struktur layout dikunci demi menjaga kecepatan kode.</li>
+                            <li><span class="check-icon">!</span> <strong>One-Time Payment:</strong> Tidak ada biaya bulanan tersembunyi.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center" style="margin-top: 3rem;">
+                    <h3 style="margin-bottom: 1rem;">Investasikan Pada Infrastruktur, Bukan Sekadar Tampilan.</h3>
+                    <a href="https://wa.me/628xxxxxxx?text=Halo%20Master%20Sutato,%20saya%20tertarik%20dengan%20Paket%20TITAN%20DIAMOND.%20Mohon%20info%20harganya." class="btn">[KONSULTASI GRATIS & CEK HARGA TITAN]</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="grid-3" style="margin-bottom: 2rem;">
+                <div>
+                    <div class="logo-brand" style="margin-bottom: 1rem;">
+                        <svg class="logo-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                        <span>[NAMA BRAND/AGENSI ANDA]</span>
+                    </div>
+                    <p style="font-size: 0.9rem;">Spesialis Infrastruktur Website High-Performance & Cyber Security untuk Bisnis.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan Lainnya</h3>
+                    <a href="[LINK_WEB_NAGA_ANDA_1]">Jasa Website Murah Terima Beres</a>
+                    <a href="[LINK_WEB_NAGA_ANDA_2]">Jasa SEO Dominasi Pasar</a>
+                    <a href="[LINK_WEB_NAGA_ANDA_3]">Jasa Landing Page Ciledug</a>
+                </div>
+                <div>
+                    <h3>Kontak Markas</h3>
+                    <p>WhatsApp: 628xxxxxxx<br>Lokasi Basis: Ciledug, Tangerang</p>
+                </div>
+            </div>
+            
+            <div class="seo-hidden-block">
+                <p>Jasa pembuatan website anti hack dan landing page loading cepat di bawah 0.5 detik adalah spesialisasi kami. Kami melayani area lokal Ciledug, Tangerang, Jakarta, dan seluruh Indonesia. Berbeda dengan jasa web murah biasa, kami menggunakan protokol pure HTML tanpa database sehingga aman dari serangan malware dan injeksi SQL. Ini adalah solusi terbaik untuk pemilik bisnis yang iklannya sering boncos karena website lemot. Kami juga ahli dalam strategi SEO tersembunyi dan dominasi kata kunci lokal. Konsultasikan kebutuhan infrastruktur digital Anda dengan pakar keamanan siber kami.</p>
+            </div>
+            <div class="text-center" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; opacity: 0.6;">
+                <p>&copy; 2024 [NAMA BRAND/AGENSI ANDA]. All Rights Reserved. Protokol Titan Legacy V4.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/628xxxxxxx?text=Halo,%20saya%20mau%20tanya%20tentang%20Jasa%20Website%20Titan." class="sticky-wa" aria-label="Chat WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+</body>
+</html>
