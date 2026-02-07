@@ -4,19 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>CILEDUG PROMO | Jasa Website & SEO Premium Tangerang</title>
-    <meta name="description" content="Jasa Pembuatan Website & SEO di Ciledug Tangerang. Garansi Google Speed Score 90-100 (Zona Hijau). Website Anti-Lelet untuk performa maksimal bisnis Anda.">
+    <title>Jasa Pembuatan Website & SEO Ciledug Tangerang | Speed 100 Garansi</title>
+    <meta name="description" content="Jasa Website Premium & SEO di Ciledug, Kreo, Larangan hingga Kebayoran Baru. Spesialis Landing Page HTML Murni (< 1 Detik). Melayani Klien Seluruh Indonesia.">
+    <meta name="keywords" content="jasa website ciledug, web developer tangerang, jasa seo ciledug raya, landing page jakarta selatan, pembuatan website kebayoran lama, sutato digital">
+    <meta name="author" content="Ciledug Promo - Sutato Digital Group">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000212">
 
-    <meta property="og:title" content="CILEDUG PROMO - Digital Agency Premium">
-    <meta property="og:description" content="Website Lambat = Omzet Hilang. Upgrade ke Titan Protocol (Score Hijau) sekarang.">
-    <meta property="og:image" content="https://placehold.co/1200x630/030014/FFF?text=CILEDUG+PROMO+DIGITAL"> 
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CILEDUG PROMO | Website Premium Speed 100">
+    <meta property="og:description" content="Website Lambat = Omzet Hilang. Upgrade ke Titan Protocol sekarang. Melayani Ciledug & Seluruh Indonesia.">
+    <meta property="og:image" content="https://placehold.co/1200x630/000212/FFF.png?text=CILEDUG+PROMO+DIGITAL">
+    <meta property="og:url" content="https://titan-legacy.vercel.app/">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Ciledug Promo Digital",
+      "url": "https://ciledugpromo.biz.id",
+      "logo": "https://placehold.co/500x500/000212/FFF.png?text=CP",
+      "telephone": "+6285283212205",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jalan Kav. Setiabudi Kreo, Larangan",
+        "addressLocality": "Ciledug",
+        "addressRegion": "Banten",
+        "postalCode": "15156",
+        "addressCountry": "ID"
+      },
+      "areaServed": [
+        "Ciledug", "Larangan", "Kreo", "Cipadu", "Petukangan", "Kebayoran Lama", "Kebayoran Baru", "Jakarta Selatan", "Indonesia"
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-6.230789", 
+        "longitude": "106.733789" 
+      }
+    }
+    </script>
     
     <style>
-        /* --- CORE: TITAN LUXURY ENGINE --- */
+        /* --- CORE ENGINE --- */
         :root {
             --bg-deep: #000212; 
             --glass-border: rgba(255, 255, 255, 0.08);
@@ -25,7 +57,7 @@
             --secondary-glow: #06b6d4; /* Cyan */
             --text-main: #ffffff;
             --text-mute: #94a3b8;
-            --font-stack: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,69 +71,55 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- 1. TITAN AURA BACKGROUND (ORBS DARI FILE TRADEMARK) --- */
+        /* --- VISUAL: AURA ORBS & GRID --- */
         .grid-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: 50px 50px;
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
             z-index: -2; pointer-events: none;
         }
 
         .orb {
             position: absolute;
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, rgba(0,0,0,0) 70%);
+            width: 50vw; height: 50vw;
+            max-width: 600px; max-height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, rgba(0,0,0,0) 70%);
             border-radius: 50%;
-            top: 10%; left: 30%;
-            filter: blur(60px);
-            animation: melayang 10s ease-in-out infinite;
+            top: -100px; left: 50%;
+            transform: translateX(-50%);
+            filter: blur(80px);
+            animation: breathe 10s ease-in-out infinite;
             z-index: -1; pointer-events: none;
         }
-        .orb-2 {
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, rgba(0,0,0,0) 70%);
-            top: 50%; right: 20%; width: 500px; height: 500px;
-            animation: melayang 14s ease-in-out infinite reverse;
-        }
-
-        @keyframes melayang {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-30px, -50px); }
-        }
-
-        /* --- 2. HOUDINI ENGINE (UTK TOMBOL LASER) --- */
-        @property --gradient-angle {
-            syntax: "<angle>";
-            initial-value: 0deg;
-            inherits: false;
-        }
-        @keyframes putar-cahaya {
-            0% { --gradient-angle: 0deg; }
-            100% { --gradient-angle: 360deg; }
+        
+        @keyframes breathe {
+            0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
         }
 
         /* --- LAYOUT UTILITIES --- */
         .container {
-            width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px;
         }
-        section { padding: 100px 0; }
+        section { padding: 80px 0; }
 
         /* --- NAVBAR --- */
         .navbar {
-            padding: 20px 0;
+            padding: 15px 0;
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 1px solid var(--glass-border);
             position: sticky; top: 0; z-index: 1000;
-            background: rgba(0, 2, 18, 0.85); backdrop-filter: blur(12px);
+            background: rgba(0, 2, 18, 0.85); backdrop-filter: blur(10px);
         }
-        .brand { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+        .brand { font-weight: 900; font-size: 1.3rem; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
         .brand span { color: var(--secondary-glow); }
-        .nav-contact { font-size: 0.8rem; font-weight: 600; color: var(--text-mute); letter-spacing: 1px; text-transform: uppercase; border: 1px solid var(--glass-border); padding: 5px 12px; border-radius: 50px; }
+        .nav-contact { font-size: 0.75rem; font-weight: 700; color: var(--text-mute); letter-spacing: 1px; text-transform: uppercase; border: 1px solid var(--glass-border); padding: 4px 12px; border-radius: 50px; }
 
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 90vh;
+            min-height: 85vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; position: relative; padding-top: 40px;
         }
@@ -111,13 +129,13 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 8px 20px; border-radius: 50px;
             font-size: 0.8rem; color: #d1d5db; margin-bottom: 30px;
-            letter-spacing: 0.5px; font-weight: 500;
+            letter-spacing: 0.5px; font-weight: 600;
             display: inline-flex; align-items: center; gap: 8px;
         }
         .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e; }
 
         h1 {
-            font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px;
+            font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px;
             letter-spacing: -1.5px; color: #fff;
         }
         .gradient-text {
@@ -126,60 +144,44 @@
             background-size: 200% auto; animation: shineText 5s linear infinite;
         }
         @keyframes shineText { to { background-position: 200% center; } }
+        
         @media (min-width: 768px) { h1 { font-size: 5rem; letter-spacing: -2.5px; } }
 
         .hero p {
-            font-size: 1.2rem; color: var(--text-mute); max-width: 650px;
+            font-size: 1.1rem; color: var(--text-mute); max-width: 650px;
             margin: 0 auto 50px; font-weight: 400;
         }
 
-        /* --- 3. THE TRADEMARK: TITAN LASER BUTTON (ADAPTED) --- */
+        /* --- TRADEMARK: LASER BUTTON --- */
+        @property --gradient-angle {
+            syntax: "<angle>"; initial-value: 0deg; inherits: false;
+        }
+        @keyframes putar-cahaya {
+            0% { --gradient-angle: 0deg; } 100% { --gradient-angle: 360deg; }
+        }
+        
         .titan-laser-btn {
-            background: #000; /* Background hitam agar kontras dgn laser */
-            color: #fff;
-            padding: 1rem 3rem; /* Lebih besar */
-            font-size: 1.1rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            border: none;
-            border-radius: 50px; /* Pill Shape */
-            position: relative;
-            cursor: pointer;
-            text-transform: uppercase;
-            text-decoration: none;
+            background: #000; color: #fff;
+            padding: 1rem 2.5rem; font-size: 1rem; font-weight: 700;
+            letter-spacing: 1px; border: 2px solid var(--secondary-glow); /* Fallback */
+            border-radius: 50px; position: relative; cursor: pointer;
+            text-transform: uppercase; text-decoration: none;
             display: inline-flex; align-items: center; gap: 10px;
             transition: transform 0.3s;
-            /* Fallback untuk Windows 7 (Border Biasa) */
-            border: 2px solid var(--secondary-glow); 
         }
 
-        /* HANYA JALAN DI BROWSER MODERN (HOUDINI SUPPORT) */
         @supports (background: paint(houdini)) {
-            .titan-laser-btn { border: none; } /* Hapus border fallback */
-            
+            .titan-laser-btn { border: none; }
             .titan-laser-btn::before, .titan-laser-btn::after {
-                content: "";
-                position: absolute;
-                inset: -2px; /* Ketebalan Laser */
-                z-index: -1;
+                content: ""; position: absolute; inset: -2px; z-index: -1;
                 border-radius: inherit;
-                /* WARNA LASER: CYAN - VIOLET - CYAN */
-                background: conic-gradient(
-                    from var(--gradient-angle), 
-                    #000, 
-                    var(--secondary-glow), 
-                    var(--primary-glow), 
-                    var(--secondary-glow), 
-                    #000
-                );
+                background: conic-gradient(from var(--gradient-angle), #000, var(--secondary-glow), var(--primary-glow), var(--secondary-glow), #000);
                 animation: putar-cahaya 3s linear infinite;
             }
-            .titan-laser-btn::after { filter: blur(15px); opacity: 0.6; } /* Glow Effect */
+            .titan-laser-btn::after { filter: blur(15px); opacity: 0.6; }
         }
 
         .titan-laser-btn:hover { transform: scale(1.05); }
-        .titan-laser-btn:hover::after { opacity: 1; filter: blur(20px); }
-
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -189,39 +191,42 @@
         .feature-card {
             background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
             border: 1px solid var(--glass-border); padding: 30px; border-radius: 16px;
-            text-align: left; transition: 0.3s;
+            text-align: left;
         }
-        .feature-card:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); }
-        .feature-icon { color: var(--text-main); margin-bottom: 15px; }
+        .feature-icon { margin-bottom: 15px; color: #fff; }
         .feature-card h4 { color: #fff; margin-bottom: 10px; font-weight: 700; font-size: 1.1rem; }
-        .feature-card p { font-size: 0.9rem; color: #9ca3af; line-height: 1.6; }
+        .feature-card p { font-size: 0.9rem; color: #9ca3af; }
 
-        /* --- BENTO GRID PORTFOLIO --- */
-        .bento-header { text-align: center; margin-bottom: 60px; }
-        .bento-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+        /* --- BENTO GRID --- */
+        .bento-header { text-align: center; margin-bottom: 50px; }
+        .bento-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; color: #fff; }
         
         .bento-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, auto); gap: 24px; width: 100%;
+            display: grid; grid-template-columns: 1fr; gap: 24px; width: 100%;
         }
+        @media (min-width: 900px) {
+            .bento-grid { grid-template-columns: repeat(3, 1fr); }
+            .span-2 { grid-column: span 2; } 
+            .span-1 { grid-column: span 1; }
+        }
+
         .bento-card {
             background: rgba(10, 10, 10, 0.6); border: 1px solid var(--glass-border);
-            border-radius: 24px; padding: 35px; position: relative; overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            display: flex; flex-direction: column; align-items: flex-start;
+            border-radius: 24px; padding: 30px; position: relative; overflow: hidden;
+            transition: all 0.3s ease; display: flex; flex-direction: column; align-items: flex-start;
             text-decoration: none; color: inherit;
         }
-        .span-2 { grid-column: span 2; } .span-1 { grid-column: span 1; }
-        .bento-card:hover { transform: translateY(-5px); border-color: var(--primary-glow); box-shadow: 0 10px 40px -10px rgba(124, 58, 237, 0.3); }
+        .bento-card:hover { transform: translateY(-5px); border-color: var(--primary-glow); }
+        
         .bento-tag {
             font-size: 0.7rem; padding: 5px 12px; border-radius: 100px;
             border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);
-            margin-bottom: 20px; font-weight: 600; color: #d1d5db; text-transform: uppercase;
+            margin-bottom: 20px; font-weight: 700; color: #d1d5db; text-transform: uppercase;
         }
-        .bento-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
-        .bento-desc { color: #9ca3af; font-size: 0.95rem; margin-bottom: 20px; max-width: 90%; }
+        .bento-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
+        .bento-desc { color: #9ca3af; font-size: 0.9rem; margin-bottom: 20px; }
         .bento-arrow { 
-            margin-top: auto; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: #000;
+            margin-top: auto; width: 35px; height: 35px; border-radius: 50%; background: #fff; color: #000;
             display: flex; align-items: center; justify-content: center; transition: 0.3s; opacity: 0; transform: scale(0.8);
         }
         .bento-card:hover .bento-arrow { opacity: 1; transform: scale(1); }
@@ -229,29 +234,23 @@
         /* --- PROFILE --- */
         .profile-box {
             background: linear-gradient(145deg, #111, #050505); border: 1px solid var(--glass-border);
-            padding: 50px; border-radius: 30px; display: flex; align-items: center; gap: 40px;
-            position: relative; overflow: hidden;
-        }
-        .profile-box::before {
-            content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03)); pointer-events: none;
+            padding: 40px; border-radius: 30px; display: flex; align-items: center; gap: 30px;
+            position: relative; overflow: hidden; margin-top: 60px;
         }
         .profile-avatar {
-            width: 120px; height: 120px; border-radius: 50%; background: #222;
-            border: 2px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 3rem; flex-shrink: 0;
+            width: 100px; height: 100px; border-radius: 50%; background: #222;
+            border: 2px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; 
+            font-size: 3rem; flex-shrink: 0;
         }
-        .profile-text h3 { font-size: 2rem; font-weight: 800; margin-bottom: 5px; }
-        .profile-text .role { color: var(--primary-glow); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
-        .profile-text p { margin-top: 15px; color: #9ca3af; font-style: italic; font-size: 1rem; }
+        .profile-text h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 5px; color: #fff; }
+        .profile-text .role { color: var(--primary-glow); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .profile-text p { margin-top: 15px; color: #9ca3af; font-style: italic; font-size: 0.95rem; }
+        @media (max-width: 768px) { .profile-box { flex-direction: column; text-align: center; } }
 
-        /* --- FOOTER --- */
-        footer { border-top: 1px solid var(--glass-border); padding: 80px 0; background: #000; text-align: center; color: #444; font-size: 0.8rem; }
-        
-        @media (max-width: 900px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .span-2, .span-1 { grid-column: span 1; }
-            .profile-box { flex-direction: column; text-align: center; }
-            .orb, .orb-2 { width: 300px; height: 300px; opacity: 0.5; }
+        /* --- SEO FOOTER --- */
+        footer { border-top: 1px solid var(--glass-border); padding: 60px 0 100px; background: #000; text-align: center; }
+        .seo-footer { 
+            font-size: 12px; color: #444; max-width: 800px; margin: 30px auto; line-height: 1.8; text-align: justify; text-align-last: center; 
         }
 
         /* --- STICKY WA --- */
@@ -263,20 +262,20 @@
             backdrop-filter: blur(5px); transition: 0.3s;
         }
         .sticky-wa:hover { transform: scale(1.05); }
+        .sticky-wa svg { width: 24px; height: 24px; }
     </style>
 </head>
 <body>
 
     <div class="grid-bg"></div>
     <div class="orb"></div>
-    <div class="orb orb-2"></div>
 
     <nav class="container navbar">
         <div class="brand">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             CILEDUG<span>PROMO</span>
         </div>
-        <div class="nav-contact">Titan Protocol V9</div>
+        <div class="nav-contact">Titan V9.1</div>
     </nav>
 
     <main class="hero container">
@@ -291,7 +290,7 @@
         </h1>
         <p>Jangan biarkan calon pembeli pindah ke kompetitor. Upgrade ke <strong>Titan Protocol</strong> (HTML Murni). Website Mewah, Stabil, Cepat, dan Disukai Google.</p>
         
-        <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20tertarik%20Website%20Premium." class="titan-laser-btn">
+        <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20tertarik%20Website%20Premium." class="titan-laser-btn" aria-label="Konsultasi Gratis via WhatsApp">
             KONSULTASI GRATIS
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
@@ -302,21 +301,21 @@
                     <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <h4>Loading Instant</h4>
-                <p>Tanpa plugin berat. HTML murni membuat loading website di bawah 1 detik, bahkan di sinyal lemah.</p>
+                <p>Tanpa plugin berat. HTML murni membuat loading website di bawah 1 detik. Pelanggan tidak perlu menunggu.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
                     <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <h4>Google Love HTML</h4>
-                <p>Struktur kode bersih (Clean Code) memudahkan Google membaca situs Anda. Ranking SEO lebih mudah naik.</p>
+                <p>Clean Code memudahkan Google merayapi situs Anda. Peluang masuk Halaman 1 Ciledug & Nasional lebih besar.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
                     <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                 </div>
                 <h4>Anti-Hack System</h4>
-                <p>Tanpa database SQL dan login admin, hacker tidak punya celah untuk masuk. Website aman selamanya.</p>
+                <p>Tanpa database SQL dan celah plugin, hacker tidak punya pintu masuk. Aset digital Anda aman selamanya.</p>
             </div>
         </div>
     </main>
@@ -328,38 +327,42 @@
         </div>
 
         <div class="bento-grid">
-            <a href="#" class="bento-card span-2">
+            <a href="https://jasa-rangka-baja-area-jakarta-sekitarnya.vercel.app/" target="_blank" class="bento-card span-2" aria-label="Lihat Project Konstruksi Baja">
                 <div class="bento-tag">PROJECT B2B</div>
-                <div class="bento-title">Konstruksi Baja</div>
-                <div class="bento-desc">Website high-ticket PT Mitra Sentosa Rahardja. Strategi Twin-Engine yang menghasilkan prospek ratusan juta rupiah.</div>
+                <div class="bento-title">Jasa Rangka Baja</div>
+                <div class="bento-desc">Website high-ticket area Jakarta. Strategi Twin-Engine yang menghasilkan prospek ratusan juta rupiah.</div>
                 <div class="bento-arrow">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
                 </div>
             </a>
 
-            <a href="#" class="bento-card span-1">
+            <a href="https://laundry-express-surabaya.vercel.app/" target="_blank" class="bento-card span-1" aria-label="Lihat Project Laundry Surabaya">
                 <div class="bento-tag">LOCAL SEO</div>
-                <div class="bento-title">Laundry Holic</div>
-                <div class="bento-desc">Penguasa kata kunci "Laundry Terdekat" di Surabaya. Orderan via WA otomatis.</div>
+                <div class="bento-title">Laundry Surabaya</div>
+                <div class="bento-desc">Penguasa kata kunci Laundry Express. Orderan via WA otomatis.</div>
                 <div class="bento-arrow">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
                 </div>
             </a>
 
-            <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20mau%20ambil%20Paket%20UMKM." class="bento-card span-2" style="background: linear-gradient(90deg, rgba(37,99,235,0.1), transparent);">
+            <a href="https://solusi-bebas-diabetes-alami.vercel.app/" target="_blank" class="bento-card span-1" aria-label="Lihat Project Solusi Diabetes">
+                <div class="bento-tag">HEALTH NICHE</div>
+                <div class="bento-title">Solusi Diabetes</div>
+                <div class="bento-desc">Landing Page edukasi kesehatan dengan copywriting persuasif.</div>
+                <div class="bento-arrow">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
+                </div>
+            </a>
+
+            <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20mau%20ambil%20Paket%20UMKM." class="bento-card span-2" style="background: linear-gradient(90deg, rgba(37,99,235,0.1), transparent);" aria-label="Pesan Paket Website UMKM">
                 <div class="bento-tag" style="background: #2563eb; color: #fff; border:none;">BEST SELLER</div>
                 <div class="bento-title">Paket Website UMKM</div>
-                <div class="bento-desc">Solusi Terima Beres. Anda dapat Domain + Hosting + Desain Premium. Cepat, Mewah, Siap Jualan.</div>
+                <div class="bento-desc">Solusi Terima Beres. Domain + Hosting + Desain Premium. Cepat, Mewah, Siap Jualan.</div>
                 <div class="bento-arrow">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
                 </div>
             </a>
             
-             <div class="bento-card span-1" style="opacity: 0.5; border-style: dashed;">
-                <div class="bento-tag">NEXT PROJECT</div>
-                <div class="bento-title">Brand Anda?</div>
-                <div class="bento-desc">Giliran bisnis Anda yang kami ledakkan omzetnya dengan teknologi Titan.</div>
-            </div>
         </div>
     </section>
 
@@ -379,13 +382,19 @@
     <footer>
         <div class="container">
             <h3 style="margin-bottom: 10px; color:#fff; font-weight: 800;">CILEDUG PROMO DIGITAL</h3>
-            <p>Jalan Kav. Setiabudi Kreo, Larangan, Ciledug, Tangerang 15156</p>
-            <p style="margin-top: 20px; color: #333;">&copy; 2026 Ciledug Promo. Partner Resmi Sutato Digital.</p>
+            <p style="color: #666; font-size: 0.9rem;">Jalan Kav. Setiabudi Kreo, Larangan, Ciledug, Tangerang 15156</p>
+            
+            <div class="seo-footer">
+                <p>Ciledug Promo adalah penyedia Jasa Pembuatan Website dan Jasa SEO Terpercaya yang berbasis di Ciledug, Tangerang. Kami fokus melayani pelaku usaha di sepanjang <strong>Jalan Raya Ciledug</strong>, mulai dari perbatasan <strong>Ciledug - Larangan - Kreo</strong>, hingga area <strong>Petukangan, Kebayoran Lama, dan Kebayoran Baru (Jakarta Selatan)</strong>. Kami memahami karakteristik pasar lokal di perbatasan Tangerang-Jakarta.</p>
+                <p>Sebagai Digital Agency Nasional, kami juga melayani klien dari seluruh Indonesia untuk pembuatan Landing Page High Performance, Website Profil Perusahaan (Company Profile), dan Toko Online tanpa database yang aman. Dengan teknologi Titan Protocol (HTML Murni), website Anda dijamin memiliki kecepatan akses tinggi dan mudah ditemukan di Google.</p>
+                <p>&copy; 2026 Ciledug Promo. Partner Resmi Sutato Digital.</p>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20tertarik%20Web%20Titan." class="sticky-wa">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20tertarik%20Web%20Titan." class="sticky-wa" aria-label="Hubungi via WhatsApp">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>CHAT SEKARANG</span>
     </a>
 
 </body>
