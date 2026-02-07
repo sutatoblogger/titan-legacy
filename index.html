@@ -168,6 +168,50 @@
         .pain-card h4 { color: #fca5a5; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .pain-card p { font-size: 0.9rem; color: #d1d5db; }
 
+        /* --- BENTO GRID SHOWCASE --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--glass-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 30px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-glow);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+        }
+
+        .card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+        .card p { color: var(--text-mute); font-size: 0.95rem; margin-bottom: 24px; line-height: 1.7; }
+        
+        .card-tag {
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
         /* --- PROFILE SECTION (SUTATO) --- */
         .profile-section {
             display: flex;
@@ -278,6 +322,36 @@
             </div>
         </div>
     </main>
+
+    <section class="container" id="showcase">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">The Titan Portfolio</h2>
+            <p style="color: var(--text-mute);">Bukti nyata dominasi digital yang telah kami kerjakan.</p>
+        </div>
+
+        <div class="bento-grid">
+            <div class="card">
+                <div class="card-icon">🏗️</div>
+                <span class="card-tag" style="background: rgba(255, 165, 0, 0.15); color: orange;">PROJECT B2B</span>
+                <h3 style="margin-top: 15px;">Konstruksi Baja</h3>
+                <p>Website high-ticket untuk PT Mitra Sentosa Rahardja. Strategi Twin-Engine yang menghasilkan prospek proyek ratusan juta.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🧺</div>
+                <span class="card-tag" style="background: rgba(0, 195, 255, 0.15); color: cyan;">LOCAL SEO</span>
+                <h3 style="margin-top: 15px;">Laundry Holic</h3>
+                <p>Menguasai pencarian "Laundry Terdekat" di Surabaya. Trafik stabil, integrasi WhatsApp order otomatis.</p>
+            </div>
+
+            <div class="card" style="border-color: var(--primary-glow);">
+                <div class="card-icon">🚀</div>
+                <span class="card-tag" style="background: rgba(0, 68, 255, 0.2); color: #809fff;">BEST SELLER</span>
+                <h3 style="margin-top: 15px;">Paket Website UMKM</h3>
+                <p>Solusi terima beres untuk UMKM Ciledug. Landing Page cepat, desain mewah, siap untuk iklan Google/FB Ads.</p>
+            </div>
+        </div>
+    </section>
 
     <section class="container">
         <div class="profile-section">
