@@ -18,11 +18,12 @@
     <style>
         /* --- CORE: TITAN SPEED ENGINE --- */
         :root {
-            --bg-deep: #050505; 
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-surface: rgba(255, 255, 255, 0.03);
-            --primary-glow: #2563eb; /* Royal Blue */
+            --bg-deep: #020205; /* Lebih Gelap untuk Kontras Mewah */
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-surface: rgba(255, 255, 255, 0.02);
+            --primary-glow: #3b82f6; /* Royal Blue */
             --secondary-glow: #06b6d4; /* Cyan Neon */
+            --gold-accent: #fbbf24; /* Sentuhan Emas */
             --text-main: #ffffff;
             --text-mute: #94a3b8;
             --font-stack: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -39,13 +40,33 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- BACKGROUND FX --- */
+        /* --- ANIMASI "THE LIVING WEB" --- */
+        @keyframes drift {
+            0% { transform: translate(0, 0); opacity: 0.3; }
+            50% { transform: translate(20px, -20px); opacity: 0.5; }
+            100% { transform: translate(0, 0); opacity: 0.3; }
+        }
+
         .ambient-glow {
             position: absolute;
-            width: 100%; height: 100vh;
-            background: radial-gradient(circle at 50% -20%, var(--primary-glow) 0%, transparent 60%);
-            opacity: 0.2;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            top: -200px; left: 50%;
+            transform: translateX(-50%);
+            filter: blur(100px);
             z-index: -1;
+            animation: drift 10s infinite ease-in-out; /* Website Bernafas */
+            pointer-events: none;
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--secondary-glow) 0%, transparent 70%);
+            bottom: -100px; right: -200px;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.2;
             pointer-events: none;
         }
 
@@ -58,26 +79,27 @@
         
         section { padding: 100px 0; }
 
-        /* --- NAVBAR --- */
+        /* --- NAVBAR GLASS --- */
         .navbar {
             padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--glass-border);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px); /* Efek Kaca Lebih Kuat */
+            -webkit-backdrop-filter: blur(15px);
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(5, 5, 5, 0.85);
+            background: rgba(2, 2, 5, 0.7);
         }
         .brand { font-weight: 900; font-size: 1.4rem; letter-spacing: -1px; }
         .brand span { color: var(--secondary-glow); }
-        .nav-contact { font-size: 0.9rem; font-weight: 600; color: var(--text-mute); }
+        .nav-contact { font-size: 0.85rem; font-weight: 600; color: var(--text-mute); letter-spacing: 1px; text-transform: uppercase; }
 
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 85vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -87,21 +109,22 @@
         }
 
         .badge-pro {
-            background: linear-gradient(90deg, rgba(37,99,235,0.2), rgba(6,182,212,0.2));
-            border: 1px solid rgba(6,182,212,0.5);
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
             padding: 8px 24px;
             border-radius: 50px;
             font-size: 0.8rem;
             color: var(--secondary-glow);
             margin-bottom: 30px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            font-weight: 800;
-            box-shadow: 0 0 20px rgba(6,182,212,0.2);
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(6,182,212,0.1);
+            backdrop-filter: blur(5px);
         }
 
         h1 {
-            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-size: clamp(3rem, 7vw, 5.5rem); /* Lebih Besar & Dominan */
             font-weight: 800;
             line-height: 1.05;
             margin-bottom: 24px;
@@ -109,10 +132,15 @@
         }
         
         h1 span {
-            background: linear-gradient(to right, #fff, #cbd5e1);
+            /* Efek Teks Metalik Mewah */
+            background: linear-gradient(to right, #fff, #94a3b8 50%, #fff);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
         }
+        
+        @keyframes shine { to { background-position: 200% center; } }
         
         .highlight { color: var(--secondary-glow); -webkit-text-fill-color: var(--secondary-glow); }
 
@@ -124,29 +152,28 @@
             font-weight: 300;
         }
 
-        /* --- BUTTON --- */
+        /* --- BUTTON PREMIUM --- */
         .btn-titan {
             position: relative;
-            padding: 20px 48px;
+            padding: 20px 50px;
             background: #fff;
             color: #000;
             text-decoration: none;
             font-weight: 800;
-            border-radius: 12px;
+            border-radius: 100px; /* Full Round agar lebih modern */
             overflow: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.1rem;
-            border: 2px solid transparent;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.1); /* Ring Halus */
         }
+
         .btn-titan:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 50px rgba(6,182,212,0.5);
-            border-color: var(--secondary-glow);
-            background: #000;
-            color: #fff;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(255,255,255,0.3);
         }
 
         /* --- PAIN POINTS --- */
@@ -157,89 +184,120 @@
             margin-top: 80px;
         }
         .pain-card {
-            background: rgba(239, 68, 68, 0.05);
-            border: 1px solid rgba(239, 68, 68, 0.2);
+            background: rgba(255, 50, 50, 0.03);
+            border: 1px solid rgba(255, 50, 50, 0.1);
             padding: 30px;
-            border-radius: 16px;
+            border-radius: 20px;
             text-align: left;
+            transition: 0.3s;
         }
-        .pain-card h4 { color: #fca5a5; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .pain-card p { font-size: 0.9rem; color: #d1d5db; }
+        .pain-card:hover { background: rgba(255, 50, 50, 0.06); transform: translateY(-3px); }
+        .pain-card h4 { color: #fca5a5; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        .pain-card p { font-size: 0.95rem; color: #d1d5db; }
 
-        /* --- BENTO GRID (CLICKABLE) --- */
+        /* --- BENTO GRID (MEWAH) --- */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
-        /* Card sekarang bisa diklik (tag a) */
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+        .card-link { text-decoration: none; color: inherit; display: block; height: 100%; }
+        
         .card {
-            background: var(--glass-surface);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 24px;
             padding: 40px 30px;
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
             backdrop-filter: blur(20px);
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            position: relative;
+            overflow: hidden;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--secondary-glow); }
-        .card-icon { font-size: 2rem; margin-bottom: 20px; display: inline-block; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 16px; }
-        .card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+        
+        /* Efek Kilau Mouse Hover pada Card */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: 0.5s;
+        }
+        
+        .card:hover::before { left: 100%; }
+        .card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; }
         .card p { color: var(--text-mute); font-size: 0.95rem; margin-bottom: 24px; }
-        .card-tag { font-size: 0.75rem; padding: 6px 14px; border-radius: 20px; font-weight: 600; display: inline-block; }
-        .card-cta { margin-top: auto; font-size: 0.85rem; color: var(--secondary-glow); font-weight: 700; display: flex; align-items: center; gap: 5px; }
+        .card-tag { 
+            font-size: 0.7rem; padding: 6px 14px; border-radius: 50px; 
+            font-weight: 700; display: inline-block; margin-bottom: 15px; 
+            letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .card-cta { 
+            margin-top: auto; font-size: 0.9rem; color: var(--text-main); 
+            font-weight: 700; display: flex; align-items: center; gap: 8px; 
+            opacity: 0.8; transition: 0.3s;
+        }
+        .card:hover .card-cta { opacity: 1; gap: 12px; color: var(--secondary-glow); }
 
         /* --- PROFILE --- */
         .profile-section {
             display: flex;
             align-items: center;
             gap: 40px;
-            background: var(--glass-surface);
+            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
             border: 1px solid var(--glass-border);
-            padding: 40px;
+            padding: 50px;
             border-radius: 30px;
-            margin: 60px 0;
-            backdrop-filter: blur(20px);
+            margin: 80px 0;
         }
         .avatar-box {
-            width: 120px; height: 120px; border-radius: 50%;
-            background: linear-gradient(135deg, #333, #111);
+            width: 140px; height: 140px; border-radius: 50%;
+            background: #111;
             display: flex; align-items: center; justify-content: center;
-            font-size: 3rem; border: 2px solid var(--secondary-glow);
-            box-shadow: 0 0 30px rgba(6,182,212,0.3); flex-shrink: 0;
+            font-size: 4rem; border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 40px rgba(0,0,0,0.5); flex-shrink: 0;
         }
-        .profile-info h3 { font-size: 1.8rem; margin-bottom: 5px; }
-        .profile-info .role { color: var(--secondary-glow); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
-        .profile-info p { margin-top: 15px; color: var(--text-mute); font-size: 0.95rem; }
+        .profile-info h3 { font-size: 2rem; margin-bottom: 5px; font-weight: 800; letter-spacing: -1px; }
+        .profile-info .role { 
+            background: linear-gradient(90deg, var(--secondary-glow), var(--primary-glow));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; 
+        }
+        .profile-info p { margin-top: 20px; color: var(--text-mute); font-size: 1rem; font-style: italic; border-left: 3px solid var(--glass-border); padding-left: 20px; }
 
         /* --- FOOTER --- */
-        footer { border-top: 1px solid var(--glass-border); padding: 80px 0 120px; background: #000; text-align: center; }
-        .seo-footer { font-size: 13px; color: #555; max-width: 800px; margin: 30px auto; line-height: 1.7; }
+        footer { border-top: 1px solid var(--glass-border); padding: 80px 0 120px; background: #010101; text-align: center; }
+        .seo-footer { font-size: 13px; color: #444; max-width: 800px; margin: 30px auto; line-height: 1.8; }
 
         /* --- STICKY WA --- */
         .sticky-wa {
             position: fixed; bottom: 30px; right: 30px;
             background: #25D366; color: white;
-            padding: 15px 25px; border-radius: 50px;
+            padding: 14px 28px; border-radius: 50px;
             display: flex; align-items: center; gap: 10px;
-            font-weight: 700; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-            z-index: 1000; transition: transform 0.3s; text-decoration: none;
+            font-weight: 700; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.2);
+            z-index: 1000; transition: all 0.3s; text-decoration: none;
             border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
         }
-        .sticky-wa:hover { transform: translateY(-5px); }
+        .sticky-wa:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4); }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .profile-section { flex-direction: column; text-align: center; }
+            h1 { font-size: 2.8rem; }
+            .profile-section { flex-direction: column; text-align: center; padding: 30px; }
             .sticky-wa span { display: none; }
             .sticky-wa { padding: 15px; border-radius: 50%; }
         }
@@ -248,6 +306,7 @@
 <body>
 
     <div class="ambient-glow"></div>
+    <div class="ambient-glow-2"></div>
 
     <nav class="container navbar">
         <div class="brand">CILEDUG<span>PROMO</span></div>
@@ -261,42 +320,42 @@
             WEBSITE ANDA LEMOT?<br>
             <span class="highlight">PELANGGAN KABUR.</span>
         </h1>
-        <p>Jangan biarkan calon pembeli pindah ke toko sebelah cuma karena website Anda loadingnya lama. Upgrade ke <strong>Titan Protocol (HTML Murni)</strong>. Stabil, Cepat, dan Disukai Google.</p>
+        <p>Jangan biarkan calon pembeli pindah ke toko sebelah. Upgrade ke <strong>Titan Protocol</strong> (HTML Murni). Website Level Atas yang Stabil, Cepat, dan Disukai Google.</p>
         
         <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20mau%20bikin%20website%20yang%20Score%20Google-nya%20Hijau." class="btn-titan">
             KONSULTASI GRATIS
-            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
         </a>
 
         <div class="pain-grid">
             <div class="pain-card">
-                <h4>⚠️ Loading Lama</h4>
-                <p>Website berat bikin pengunjung emosi. Pakai HTML murni, loading jadi instan tanpa plugin berat.</p>
+                <h4>⏱️ Loading Instant</h4>
+                <p>Website berat bikin pengunjung emosi. Pakai HTML murni, loading jadi kilat tanpa plugin WordPress yang berat.</p>
             </div>
             <div class="pain-card">
-                <h4>⚠️ Susah Ranking</h4>
+                <h4>🏆 Prioritas Google</h4>
                 <p>Google lebih suka website yang strukturnya rapi (Score Hijau). Peluang masuk Halaman 1 lebih besar.</p>
             </div>
             <div class="pain-card">
-                <h4>⚠️ Rawan Hack</h4>
-                <p>Tanpa database dan plugin WordPress, website Anda jauh lebih aman dari serangan hacker.</p>
+                <h4>🛡️ Anti-Hack System</h4>
+                <p>Tanpa database dan celah plugin, website Anda jauh lebih aman dari serangan malware.</p>
             </div>
         </div>
     </main>
 
     <section class="container" id="showcase">
         <div style="text-align: center; margin-bottom: 60px;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">The Titan Portfolio</h2>
-            <p style="color: var(--text-mute);">Bukti performa tinggi yang telah kami kerjakan.</p>
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px; font-weight: 800;">The Titan Portfolio</h2>
+            <p style="color: var(--text-mute);">Karya masterpiece yang telah teruji.</p>
         </div>
 
         <div class="bento-grid">
             
             <a href="#" class="card-link">
                 <div class="card">
+                    <span class="card-tag" style="background: rgba(255, 165, 0, 0.1); color: #fbbf24; border: 1px solid rgba(255, 165, 0, 0.3);">PROJECT B2B</span>
                     <div class="card-icon">🏗️</div>
-                    <span class="card-tag" style="background: rgba(255, 165, 0, 0.15); color: orange;">PROJECT B2B</span>
-                    <h3 style="margin-top: 15px;">Konstruksi Baja</h3>
+                    <h3>Konstruksi Baja</h3>
                     <p>Website high-ticket PT Mitra Sentosa Rahardja. Strategi Twin-Engine yang menghasilkan prospek ratusan juta.</p>
                     <div class="card-cta">Lihat Project ➔</div>
                 </div>
@@ -304,20 +363,20 @@
 
             <a href="#" class="card-link">
                 <div class="card">
+                    <span class="card-tag" style="background: rgba(6, 182, 212, 0.1); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3);">LOCAL SEO</span>
                     <div class="card-icon">🧺</div>
-                    <span class="card-tag" style="background: rgba(0, 195, 255, 0.15); color: cyan;">LOCAL SEO</span>
-                    <h3 style="margin-top: 15px;">Laundry Holic</h3>
+                    <h3>Laundry Holic</h3>
                     <p>Penguasa kata kunci "Laundry Terdekat" di Surabaya. Trafik stabil, integrasi WA order otomatis.</p>
                     <div class="card-cta">Lihat Project ➔</div>
                 </div>
             </a>
 
             <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20tertarik%20Paket%20Website%20UMKM%20Terima%20Beres." class="card-link">
-                <div class="card" style="border-color: var(--primary-glow);">
+                <div class="card" style="border-color: var(--primary-glow); background: linear-gradient(145deg, rgba(37,99,235,0.1), transparent);">
+                    <span class="card-tag" style="background: #2563eb; color: #fff;">BEST SELLER</span>
                     <div class="card-icon">🚀</div>
-                    <span class="card-tag" style="background: rgba(0, 68, 255, 0.2); color: #809fff;">BEST SELLER</span>
-                    <h3 style="margin-top: 15px;">Paket Website UMKM</h3>
-                    <p>Solusi terima beres. Anda terima jadi (Domain+Hosting+Desain). Website cepat, mewah, dan siap untuk jualan.</p>
+                    <h3>Paket Website UMKM</h3>
+                    <p>Solusi terima beres. Anda terima jadi (Domain+Hosting+Desain). Website cepat, mewah, dan siap jualan.</p>
                     <div class="card-cta">Pesan Sekarang ➔</div>
                 </div>
             </a>
@@ -338,7 +397,7 @@
 
     <footer>
         <div class="container">
-            <h3 style="margin-bottom: 10px;">CILEDUG PROMO DIGITAL</h3>
+            <h3 style="margin-bottom: 10px; font-weight: 900;">CILEDUG PROMO DIGITAL</h3>
             <p style="color: var(--text-mute);">Jalan Kav. Setiabudi Kreo, Larangan, Ciledug, Tangerang 15156</p>
             <div class="seo-footer">
                 <p>Ciledug Promo adalah partner resmi Sutato Digital. Melayani Jasa Pembuatan Website & SEO di Ciledug, Larangan, Karang Tengah, dan Cipondoh. Spesialis Landing Page High Performance tanpa database yang aman dan cepat.</p>
