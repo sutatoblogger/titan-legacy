@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>CILEDUG PROMO | Jasa Website & SEO Premium Tangerang</title>
-    <meta name="description" content="Jasa Pembuatan Website & SEO di Ciledug Tangerang. Garansi Google Speed Score 100 (Hijau). Website Anti-Lelet untuk performa maksimal bisnis Anda.">
+    <meta name="description" content="Jasa Pembuatan Website & SEO di Ciledug Tangerang. Garansi Google Speed Score 90-100 (Zona Hijau). Website Anti-Lelet untuk performa maksimal bisnis Anda.">
     <meta name="robots" content="index, follow">
 
     <meta property="og:title" content="CILEDUG PROMO - Digital Agency Premium">
-    <meta property="og:description" content="Website Lambat = Omzet Hilang. Upgrade ke Titan Protocol (Score 100) sekarang.">
+    <meta property="og:description" content="Website Lambat = Omzet Hilang. Upgrade ke Titan Protocol (Score Hijau) sekarang.">
     <meta property="og:image" content="https://placehold.co/1200x630/030014/FFF?text=CILEDUG+PROMO+DIGITAL"> 
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,6 @@
             --glass-surface: rgba(255, 255, 255, 0.03);
             --primary-glow: #2563eb; /* Royal Blue */
             --secondary-glow: #06b6d4; /* Cyan Neon */
-            --danger-glow: #ef4444; 
             --text-main: #ffffff;
             --text-mute: #94a3b8;
             --font-stack: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -87,7 +86,6 @@
             position: relative;
         }
 
-        /* BADGE BARU: AMAN & TERPERCAYA */
         .badge-pro {
             background: linear-gradient(90deg, rgba(37,99,235,0.2), rgba(6,182,212,0.2));
             border: 1px solid rgba(6,182,212,0.5);
@@ -143,7 +141,6 @@
             font-size: 1.1rem;
             border: 2px solid transparent;
         }
-
         .btn-titan:hover {
             transform: translateY(-4px);
             box-shadow: 0 0 50px rgba(6,182,212,0.5);
@@ -169,12 +166,18 @@
         .pain-card h4 { color: #fca5a5; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .pain-card p { font-size: 0.9rem; color: #d1d5db; }
 
-        /* --- BENTO GRID --- */
+        /* --- BENTO GRID (CLICKABLE) --- */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
             margin-top: 40px;
+        }
+        /* Card sekarang bisa diklik (tag a) */
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         .card {
             background: var(--glass-surface);
@@ -183,12 +186,17 @@
             padding: 40px 30px;
             transition: transform 0.3s ease;
             backdrop-filter: blur(20px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         .card:hover { transform: translateY(-5px); border-color: var(--secondary-glow); }
         .card-icon { font-size: 2rem; margin-bottom: 20px; display: inline-block; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 16px; }
         .card h3 { font-size: 1.4rem; margin-bottom: 12px; }
         .card p { color: var(--text-mute); font-size: 0.95rem; margin-bottom: 24px; }
         .card-tag { font-size: 0.75rem; padding: 6px 14px; border-radius: 20px; font-weight: 600; display: inline-block; }
+        .card-cta { margin-top: auto; font-size: 0.85rem; color: var(--secondary-glow); font-weight: 700; display: flex; align-items: center; gap: 5px; }
 
         /* --- PROFILE --- */
         .profile-section {
@@ -247,7 +255,7 @@
     </nav>
 
     <main class="hero container">
-        <div class="badge-pro">🚀 GARANSI GOOGLE SPEED SCORE 100</div>
+        <div class="badge-pro">🚀 GARANSI GOOGLE SPEED SCORE 90-100</div>
         
         <h1>
             WEBSITE ANDA LEMOT?<br>
@@ -255,7 +263,7 @@
         </h1>
         <p>Jangan biarkan calon pembeli pindah ke toko sebelah cuma karena website Anda loadingnya lama. Upgrade ke <strong>Titan Protocol (HTML Murni)</strong>. Stabil, Cepat, dan Disukai Google.</p>
         
-        <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20mau%20bikin%20website%20yang%20Score%20Google-nya%20100." class="btn-titan">
+        <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20mau%20bikin%20website%20yang%20Score%20Google-nya%20Hijau." class="btn-titan">
             KONSULTASI GRATIS
             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
         </a>
@@ -267,7 +275,7 @@
             </div>
             <div class="pain-card">
                 <h4>⚠️ Susah Ranking</h4>
-                <p>Google lebih suka website yang strukturnya rapi (Score 100). Peluang masuk Halaman 1 lebih besar.</p>
+                <p>Google lebih suka website yang strukturnya rapi (Score Hijau). Peluang masuk Halaman 1 lebih besar.</p>
             </div>
             <div class="pain-card">
                 <h4>⚠️ Rawan Hack</h4>
@@ -283,24 +291,37 @@
         </div>
 
         <div class="bento-grid">
-            <div class="card">
-                <div class="card-icon">🏗️</div>
-                <span class="card-tag" style="background: rgba(255, 165, 0, 0.15); color: orange;">PROJECT B2B</span>
-                <h3 style="margin-top: 15px;">Konstruksi Baja</h3>
-                <p>Website high-ticket PT Mitra Sentosa Rahardja. Strategi Twin-Engine yang menghasilkan prospek ratusan juta.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🧺</div>
-                <span class="card-tag" style="background: rgba(0, 195, 255, 0.15); color: cyan;">LOCAL SEO</span>
-                <h3 style="margin-top: 15px;">Laundry Holic</h3>
-                <p>Penguasa kata kunci "Laundry Terdekat" di Surabaya. Trafik stabil, integrasi WA order otomatis.</p>
-            </div>
-            <div class="card" style="border-color: var(--primary-glow);">
-                <div class="card-icon">🚀</div>
-                <span class="card-tag" style="background: rgba(0, 68, 255, 0.2); color: #809fff;">BEST SELLER</span>
-                <h3 style="margin-top: 15px;">Paket Website UMKM</h3>
-                <p>Solusi terima beres untuk UMKM. Landing Page cepat, desain mewah, siap iklan Google/FB Ads.</p>
-            </div>
+            
+            <a href="#" class="card-link">
+                <div class="card">
+                    <div class="card-icon">🏗️</div>
+                    <span class="card-tag" style="background: rgba(255, 165, 0, 0.15); color: orange;">PROJECT B2B</span>
+                    <h3 style="margin-top: 15px;">Konstruksi Baja</h3>
+                    <p>Website high-ticket PT Mitra Sentosa Rahardja. Strategi Twin-Engine yang menghasilkan prospek ratusan juta.</p>
+                    <div class="card-cta">Lihat Project ➔</div>
+                </div>
+            </a>
+
+            <a href="#" class="card-link">
+                <div class="card">
+                    <div class="card-icon">🧺</div>
+                    <span class="card-tag" style="background: rgba(0, 195, 255, 0.15); color: cyan;">LOCAL SEO</span>
+                    <h3 style="margin-top: 15px;">Laundry Holic</h3>
+                    <p>Penguasa kata kunci "Laundry Terdekat" di Surabaya. Trafik stabil, integrasi WA order otomatis.</p>
+                    <div class="card-cta">Lihat Project ➔</div>
+                </div>
+            </a>
+
+            <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20tertarik%20Paket%20Website%20UMKM%20Terima%20Beres." class="card-link">
+                <div class="card" style="border-color: var(--primary-glow);">
+                    <div class="card-icon">🚀</div>
+                    <span class="card-tag" style="background: rgba(0, 68, 255, 0.2); color: #809fff;">BEST SELLER</span>
+                    <h3 style="margin-top: 15px;">Paket Website UMKM</h3>
+                    <p>Solusi terima beres. Anda terima jadi (Domain+Hosting+Desain). Website cepat, mewah, dan siap untuk jualan.</p>
+                    <div class="card-cta">Pesan Sekarang ➔</div>
+                </div>
+            </a>
+
         </div>
     </section>
 
@@ -326,7 +347,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20tertarik%20Website%20Score%20100." class="sticky-wa" aria-label="Chat WhatsApp">
+    <a href="https://wa.me/6285283212205?text=Halo%20Mas%20Sutato,%20saya%20tertarik%20Website%20Score%20Hijau." class="sticky-wa" aria-label="Chat WhatsApp">
         <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
         <span>CHAT SEKARANG</span>
     </a>
