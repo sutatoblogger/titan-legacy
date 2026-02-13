@@ -24,6 +24,7 @@
     <meta property="og:url" content="https://titan-legacy.vercel.app/">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,16 +38,15 @@
             --glass-bg: rgba(10, 10, 15, 0.6);
             --primary-glow: #7c3aed; /* Violet */
             --secondary-glow: #06b6d4; /* Cyan */
-            --gold-vip: #d4af37; /* Aksen Premium */
+            --gold-vip: #d4af37; 
             --text-main: #ffffff;
             --text-mute: #94a3b8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        
         body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Outfit', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
-        /* --- VISUAL 1: GRID & FLOATING ORBS (AURA BUILD) --- */
+        /* --- VISUAL 1: GRID & FLOATING ORBS --- */
         .grid-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background-image: 
@@ -86,7 +86,7 @@
         .brand span { color: var(--secondary-glow); }
         .nav-contact { font-size: 0.75rem; font-weight: 700; color: #fff; letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(--glass-border); padding: 6px 16px; border-radius: 50px; background: rgba(255,255,255,0.05); }
 
-        /* --- HERO SECTION (KILLER COPYWRITING) --- */
+        /* --- HERO SECTION --- */
         .hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 
         .badge-pro {
@@ -108,24 +108,27 @@
 
         .hero p { font-size: 1.2rem; color: var(--text-mute); max-width: 700px; margin: 0 auto 50px; font-weight: 400; line-height: 1.8; }
 
-        /* --- VISUAL 2: BORDER BEAM EFFECT (TOMBOL CTA) --- */
-        @property --gradient-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
-        @keyframes putar-cahaya { 0% { --gradient-angle: 0deg; } 100% { --gradient-angle: 360deg; } }
+        /* --- VISUAL 2: BORDER BEAM EFFECT (GPU ACCELERATED - SUPER FAST) --- */
+        .btn-beam-wrapper {
+            position: relative; display: inline-block;
+            border-radius: 55px; padding: 2px; /* Ketebalan cahaya border */
+            overflow: hidden; /* Memotong cahaya yang bocor */
+        }
+        .btn-beam-wrapper::before {
+            content: ""; position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(transparent, var(--secondary-glow), var(--primary-glow), transparent 30%);
+            animation: spin-gpu 3s linear infinite;
+        }
+        @keyframes spin-gpu { 100% { transform: rotate(360deg); } }
         
-        .btn-beam-wrapper { position: relative; display: inline-block; }
         .btn-beam {
             background: #000; color: #fff; padding: 18px 45px; font-size: 1.1rem; font-weight: 700;
             letter-spacing: 1.5px; border: none; border-radius: 50px; position: relative; z-index: 2;
             cursor: pointer; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px;
             font-family: 'Outfit', sans-serif; transition: 0.3s;
         }
-        .btn-beam-wrapper::before, .btn-beam-wrapper::after {
-            content: ""; position: absolute; inset: -3px; z-index: 1; border-radius: 55px;
-            background: conic-gradient(from var(--gradient-angle), transparent 20%, var(--secondary-glow), var(--primary-glow), transparent 80%);
-            animation: putar-cahaya 3s linear infinite;
-        }
-        .btn-beam-wrapper::after { filter: blur(15px); opacity: 0.8; }
-        .btn-beam:hover { background: var(--secondary-glow); color: #000; transform: scale(1.02); }
+        .btn-beam:hover { background: var(--secondary-glow); color: #000; }
 
         /* --- FEATURES: GLASSMORPHISM CARDS --- */
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 80px; }
@@ -146,7 +149,7 @@
         .glass-card h4 { color: #fff; margin-bottom: 12px; font-weight: 800; font-size: 1.3rem; }
         .glass-card p { font-size: 1rem; color: var(--text-mute); }
 
-        /* --- THE TITAN VAULT (17 PORTFOLIO GRID) --- */
+        /* --- THE TITAN VAULT (17 PORTFOLIO) --- */
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 3rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 15px; color: #fff; }
         
@@ -154,24 +157,17 @@
         
         .vault-item {
             background: #050505; border: 1px solid var(--glass-border); border-radius: 20px;
-            overflow: hidden; position: relative; transition: 0.4s; display: flex; flex-direction: column;
+            overflow: hidden; position: relative; transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s; 
+            display: flex; flex-direction: column;
+            content-visibility: auto; /* SECRET WEAPON: Skip rendering until scrolled */
+            contain-intrinsic-size: 350px;
         }
-        .vault-item:hover { border-color: var(--primary-glow); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(124, 58, 237, 0.15); z-index: 10;}
+        .vault-item:hover { border-color: var(--secondary-glow); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15); z-index: 10;}
         
         .vault-img { width: 100%; height: 200px; background: #111; overflow: hidden; position: relative; }
         .vault-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
         .vault-item:hover .vault-img img { opacity: 1; transform: scale(1.05); }
         
-        /* Inner Border Beam on Hover for Vault */
-        .vault-item::before {
-            content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 2px;
-            background: linear-gradient(45deg, transparent, var(--secondary-glow), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude;
-            opacity: 0; transition: 0.4s; z-index: 10; pointer-events: none;
-        }
-        .vault-item:hover::before { opacity: 1; }
-
         .vault-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
         .v-tag { font-size: 0.7rem; padding: 4px 10px; border-radius: 4px; background: rgba(255,255,255,0.05); color: var(--secondary-glow); display: inline-block; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
         .v-tag.vip { background: rgba(212, 175, 55, 0.1); color: var(--gold-vip); border: 1px solid rgba(212, 175, 55, 0.3); }
@@ -279,7 +275,7 @@
                     <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.956 11.956 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                 </div>
                 <h4>Absolute Security</h4>
-                <p>Tanpa database usang, tanpa celah celah sistem. Website Anda kebal dari serangan Deface maupun Malware selamanya.</p>
+                <p>Tanpa database usang, tanpa celah sistem. Website Anda kebal dari serangan Deface maupun Malware selamanya.</p>
             </div>
         </div>
     </main>
@@ -293,7 +289,7 @@
         <div class="vault-grid">
             
             <a href="https://aura-aesthetic-ciledug.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Klinik Kecantikan"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Klinik Kecantikan"></div>
                 <div class="vault-content">
                     <span class="v-tag vip">👑 VIP LUXURY NICHE</span>
                     <h3>Aura Aesthetic Clinic</h3>
@@ -303,7 +299,7 @@
             </a>
 
             <a href="https://aura-teknisi-ciledug.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Service AC"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Service AC"></div>
                 <div class="vault-content">
                     <span class="v-tag">🛠️ HOME SERVICES</span>
                     <h3>Aura Teknisi Mandiri</h3>
@@ -313,7 +309,7 @@
             </a>
 
             <a href="https://aura-culinary-demo.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Culinary Resto"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Culinary Resto"></div>
                 <div class="vault-content">
                     <span class="v-tag">🍔 F&B / RESTAURANT</span>
                     <h3>Aura Culinary Resto</h3>
@@ -323,7 +319,7 @@
             </a>
 
             <a href="https://bengkel-mobil-tangerang-24jam.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Bengkel Mobil"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Bengkel Mobil"></div>
                 <div class="vault-content">
                     <span class="v-tag">⚙️ AUTOMOTIVE B2C</span>
                     <h3>Bengkel Mobil 24 Jam</h3>
@@ -333,7 +329,7 @@
             </a>
 
             <a href="https://laundry-express-surabaya.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Laundry Express"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Laundry Express"></div>
                 <div class="vault-content">
                     <span class="v-tag">👕 LOCAL RETAIL</span>
                     <h3>Laundry Express SBY</h3>
@@ -343,7 +339,7 @@
             </a>
 
             <a href="https://solusi-bebas-diabetes-alami.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Herbal Diabetes"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Herbal Diabetes"></div>
                 <div class="vault-content">
                     <span class="v-tag">🌿 HEALTH & WELLNESS</span>
                     <h3>Solusi Diabetes Alami</h3>
@@ -353,7 +349,7 @@
             </a>
 
             <a href="https://takoyaki-banyumanik.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1541592102400-33630f146ee5?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Takoyaki"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Takoyaki"></div>
                 <div class="vault-content">
                     <span class="v-tag">🍡 CULINARY FRANCHISE</span>
                     <h3>Takoyaki Street Food</h3>
@@ -363,7 +359,7 @@
             </a>
 
             <a href="https://rohim-sedot-wc.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Sedot WC"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Sedot WC"></div>
                 <div class="vault-content">
                     <span class="v-tag">🚽 SANITATION EXPERT</span>
                     <h3>Ahli Sedot WC Darurat</h3>
@@ -373,7 +369,7 @@
             </a>
 
             <a href="https://pintu-harmonika.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Pintu Harmonika"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Pintu Harmonika"></div>
                 <div class="vault-content">
                     <span class="v-tag">🏭 INDUSTRIAL & RETAIL</span>
                     <h3>Pabrikasi Pintu Harmonika</h3>
@@ -383,7 +379,7 @@
             </a>
 
             <a href="https://jasa-rangka-baja-area-jakarta-sekitarnya.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Rangka Baja"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Rangka Baja"></div>
                 <div class="vault-content">
                     <span class="v-tag">🏗️ B2B CONSTRUCTION</span>
                     <h3>Konstruksi Rangka Baja</h3>
@@ -393,7 +389,7 @@
             </a>
 
             <a href="https://jasa-injeksi-beton-waterproofing.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Injeksi Beton"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Injeksi Beton"></div>
                 <div class="vault-content">
                     <span class="v-tag">🧱 HEAVY MAINTENANCE</span>
                     <h3>Injeksi Beton & Waterproof</h3>
@@ -403,7 +399,7 @@
             </a>
 
             <a href="https://jasa-saluran-mampet.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Saluran Mampet"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Saluran Mampet"></div>
                 <div class="vault-content">
                     <span class="v-tag">🔧 PLUMBING REPAIR</span>
                     <h3>Spesialis Saluran Mampet</h3>
@@ -413,7 +409,7 @@
             </a>
 
             <a href="https://ciledug-bio.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Bio Link"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Bio Link"></div>
                 <div class="vault-content">
                     <span class="v-tag">🔗 DIGITAL PROFILING</span>
                     <h3>Titan Bio-Link Matrix</h3>
@@ -423,7 +419,7 @@
             </a>
 
             <a href="https://ciledug-rent-car-luxury.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1563720225384-9a0f40b2a0c6?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Luxury Car Rent"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1503375822723-b04940024f2b?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Luxury Car Rent"></div>
                 <div class="vault-content">
                     <span class="v-tag vip">🚘 PREMIUM TRANSPORT</span>
                     <h3>Luxury Rent Car Ciledug</h3>
@@ -433,7 +429,7 @@
             </a>
 
             <a href="https://jasa-inspektor-mobil-jakarta-bekasi.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1486262715619-67081010ddbe?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Inspektor Mobil"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Inspektor Mobil"></div>
                 <div class="vault-content">
                     <span class="v-tag">🔍 AUTO INSPECTION</span>
                     <h3>Jasa Inspektor Mobil JKT</h3>
@@ -443,7 +439,7 @@
             </a>
 
             <a href="https://ciledug-interior-kitchen-seat.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Kitchen Set"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Kitchen Set"></div>
                 <div class="vault-content">
                     <span class="v-tag">🛋️ HOME DECOR</span>
                     <h3>Interior & Kitchen Set</h3>
@@ -453,7 +449,7 @@
             </a>
 
             <a href="https://jasa-cutting.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1504917595217-d4ce5eb928cca?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Laser Cutting CNC"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Laser Cutting CNC"></div>
                 <div class="vault-content">
                     <span class="v-tag">✂️ CNC & LASER CUT</span>
                     <h3>Spesialis Laser Cutting</h3>
