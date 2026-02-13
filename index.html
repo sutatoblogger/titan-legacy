@@ -25,10 +25,11 @@
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap"></noscript>
 
     <style>
         /* --- CORE ENGINE (DARK CYBER LUXURY) --- */
@@ -46,7 +47,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Outfit', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
-        /* --- VISUAL 1: GRID & FLOATING ORBS --- */
+        /* --- VISUAL 1: GRID & FLOATING ORBS (HARDWARE ACCELERATED) --- */
         .grid-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background-image: 
@@ -62,13 +63,14 @@
             position: absolute; width: 50vw; height: 50vw; max-width: 600px; max-height: 600px;
             border-radius: 50%; filter: blur(90px); opacity: 0.4;
             animation: melayang 12s ease-in-out infinite alternate;
+            will-change: transform; transform: translateZ(0); /* Forcing GPU */
         }
         .orb-1 { background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); top: -10%; left: 10%; }
         .orb-2 { background: radial-gradient(circle, var(--secondary-glow) 0%, transparent 70%); bottom: -20%; right: -10%; animation-delay: -5s; }
 
         @keyframes melayang {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, -50px) scale(1.1); }
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            100% { transform: translate3d(50px, -50px, 0) scale(1.1); }
         }
 
         /* --- LAYOUT UTILITIES --- */
@@ -97,28 +99,24 @@
         .dot { width: 8px; height: 8px; background: var(--secondary-glow); border-radius: 50%; box-shadow: 0 0 10px var(--secondary-glow); animation: blink 2s infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
+        /* Optimized H1 (No active background animation on mobile to save CPU) */
         h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 24px; letter-spacing: -1.5px; }
         .gradient-text {
-            background: linear-gradient(to right, #fff 20%, var(--secondary-glow) 50%, var(--primary-glow) 80%);
+            background: linear-gradient(to right, #fff 10%, var(--secondary-glow) 50%, var(--primary-glow) 90%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-size: 200% auto; animation: shineText 5s linear infinite;
         }
-        @keyframes shineText { to { background-position: 200% center; } }
         @media (min-width: 768px) { h1 { font-size: 5.5rem; } }
 
         .hero p { font-size: 1.2rem; color: var(--text-mute); max-width: 700px; margin: 0 auto 50px; font-weight: 400; line-height: 1.8; }
 
         /* --- VISUAL 2: BORDER BEAM EFFECT (GPU ACCELERATED - SUPER FAST) --- */
         .btn-beam-wrapper {
-            position: relative; display: inline-block;
-            border-radius: 55px; padding: 2px; /* Ketebalan cahaya border */
-            overflow: hidden; /* Memotong cahaya yang bocor */
+            position: relative; display: inline-block; border-radius: 55px; padding: 2px; overflow: hidden;
         }
         .btn-beam-wrapper::before {
-            content: ""; position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: conic-gradient(transparent, var(--secondary-glow), var(--primary-glow), transparent 30%);
-            animation: spin-gpu 3s linear infinite;
+            animation: spin-gpu 3s linear infinite; will-change: transform;
         }
         @keyframes spin-gpu { 100% { transform: rotate(360deg); } }
         
@@ -159,7 +157,7 @@
             background: #050505; border: 1px solid var(--glass-border); border-radius: 20px;
             overflow: hidden; position: relative; transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s; 
             display: flex; flex-direction: column;
-            content-visibility: auto; /* SECRET WEAPON: Skip rendering until scrolled */
+            content-visibility: auto; /* SKIP RENDER JIKA BELUM DI-SCROLL */
             contain-intrinsic-size: 350px;
         }
         .vault-item:hover { border-color: var(--secondary-glow); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15); z-index: 10;}
@@ -199,9 +197,7 @@
 
         /* --- SEO DEWA FOOTER --- */
         footer { border-top: 1px solid var(--glass-border); padding: 80px 0 40px; background: #000; text-align: center; position: relative; z-index: 2; }
-        .seo-hidden-text { 
-            width: 100%; height: 1px; overflow: hidden; opacity: 0.01; position: absolute; font-size: 10px; color: transparent;
-        }
+        .seo-hidden-text { width: 100%; height: 1px; overflow: hidden; opacity: 0.01; position: absolute; font-size: 10px; color: transparent; }
         .footer-logo { font-size: 2rem; font-weight: 900; margin-bottom: 20px; color: #fff; }
         .footer-logo span { color: var(--secondary-glow); }
         .footer-address { color: var(--text-mute); font-size: 0.95rem; margin-bottom: 30px; }
@@ -289,7 +285,7 @@
         <div class="vault-grid">
             
             <a href="https://aura-aesthetic-ciledug.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Klinik Kecantikan"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Klinik Kecantikan"></div>
                 <div class="vault-content">
                     <span class="v-tag vip">👑 VIP LUXURY NICHE</span>
                     <h3>Aura Aesthetic Clinic</h3>
@@ -349,7 +345,7 @@
             </a>
 
             <a href="https://takoyaki-banyumanik.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Takoyaki"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Takoyaki"></div>
                 <div class="vault-content">
                     <span class="v-tag">🍡 CULINARY FRANCHISE</span>
                     <h3>Takoyaki Street Food</h3>
@@ -369,7 +365,7 @@
             </a>
 
             <a href="https://pintu-harmonika.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Pintu Harmonika"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1504917595217-d4ce5eb928cca?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Pintu Harmonika"></div>
                 <div class="vault-content">
                     <span class="v-tag">🏭 INDUSTRIAL & RETAIL</span>
                     <h3>Pabrikasi Pintu Harmonika</h3>
@@ -419,7 +415,7 @@
             </a>
 
             <a href="https://ciledug-rent-car-luxury.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1503375822723-b04940024f2b?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Luxury Car Rent"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1549317336-206569e8475c?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Luxury Car Rent"></div>
                 <div class="vault-content">
                     <span class="v-tag vip">🚘 PREMIUM TRANSPORT</span>
                     <h3>Luxury Rent Car Ciledug</h3>
@@ -429,7 +425,7 @@
             </a>
 
             <a href="https://jasa-inspektor-mobil-jakarta-bekasi.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Inspektor Mobil"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Inspektor Mobil"></div>
                 <div class="vault-content">
                     <span class="v-tag">🔍 AUTO INSPECTION</span>
                     <h3>Jasa Inspektor Mobil JKT</h3>
@@ -449,7 +445,7 @@
             </a>
 
             <a href="https://jasa-cutting.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Laser Cutting CNC"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1581092160562-40aa51e60058?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Laser Cutting CNC"></div>
                 <div class="vault-content">
                     <span class="v-tag">✂️ CNC & LASER CUT</span>
                     <h3>Spesialis Laser Cutting</h3>
