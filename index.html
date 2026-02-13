@@ -47,7 +47,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Outfit', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
-        /* --- VISUAL 1: GRID & FLOATING ORBS (HARDWARE ACCELERATED) --- */
+        /* --- VISUAL 1: GRID & FLOATING ORBS (GPU ACCELERATED) --- */
         .grid-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background-image: 
@@ -63,7 +63,7 @@
             position: absolute; width: 50vw; height: 50vw; max-width: 600px; max-height: 600px;
             border-radius: 50%; filter: blur(90px); opacity: 0.4;
             animation: melayang 12s ease-in-out infinite alternate;
-            will-change: transform; transform: translateZ(0); /* Forcing GPU */
+            will-change: transform; transform: translateZ(0);
         }
         .orb-1 { background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); top: -10%; left: 10%; }
         .orb-2 { background: radial-gradient(circle, var(--secondary-glow) 0%, transparent 70%); bottom: -20%; right: -10%; animation-delay: -5s; }
@@ -99,7 +99,6 @@
         .dot { width: 8px; height: 8px; background: var(--secondary-glow); border-radius: 50%; box-shadow: 0 0 10px var(--secondary-glow); animation: blink 2s infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-        /* Optimized H1 (No active background animation on mobile to save CPU) */
         h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 24px; letter-spacing: -1.5px; }
         .gradient-text {
             background: linear-gradient(to right, #fff 10%, var(--secondary-glow) 50%, var(--primary-glow) 90%);
@@ -147,7 +146,7 @@
         .glass-card h4 { color: #fff; margin-bottom: 12px; font-weight: 800; font-size: 1.3rem; }
         .glass-card p { font-size: 1rem; color: var(--text-mute); }
 
-        /* --- THE TITAN VAULT (17 PORTFOLIO) --- */
+        /* --- THE TITAN VAULT (17 PORTFOLIO LENGKAP) --- */
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 3rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 15px; color: #fff; }
         
@@ -157,8 +156,6 @@
             background: #050505; border: 1px solid var(--glass-border); border-radius: 20px;
             overflow: hidden; position: relative; transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s; 
             display: flex; flex-direction: column;
-            content-visibility: auto; /* SKIP RENDER JIKA BELUM DI-SCROLL */
-            contain-intrinsic-size: 350px;
         }
         .vault-item:hover { border-color: var(--secondary-glow); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15); z-index: 10;}
         
@@ -198,7 +195,7 @@
         /* --- SEO DEWA FOOTER --- */
         footer { border-top: 1px solid var(--glass-border); padding: 80px 0 40px; background: #000; text-align: center; position: relative; z-index: 2; }
         .seo-hidden-text { width: 100%; height: 1px; overflow: hidden; opacity: 0.01; position: absolute; font-size: 10px; color: transparent; }
-        .footer-logo { font-size: 2rem; font-weight: 900; margin-bottom: 20px; color: #fff; }
+        .footer-logo { font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; color: #fff; letter-spacing: -1px; }
         .footer-logo span { color: var(--secondary-glow); }
         .footer-address { color: var(--text-mute); font-size: 0.95rem; margin-bottom: 30px; }
 
@@ -226,23 +223,23 @@
         <div class="navbar">
             <div class="brand">
                 <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                CILEDUG<span>PROMO</span>
+                TITAN<span>LEGACY</span>
             </div>
-            <div class="nav-contact">TITAN CORE V.10</div>
+            <div class="nav-contact">TITAN CORE V.11</div>
         </div>
     </nav>
 
     <main class="hero container">
         <div class="badge-pro">
             <div class="dot"></div>
-            AGENCY LEVEL ARCHITECTURE • SPEED 100
+            AGENCY LEVEL ARCHITECTURE • SPEED 90 - 100
         </div>
         
         <h1>
             DOMINASI GOOGLE ATAU<br>
             <span class="gradient-text">MATI DITELAN KOMPETITOR.</span>
         </h1>
-        <p>Website lambat adalah bunuh diri bisnis. Kami merakit senjata digital (HTML Murni) untuk mengunci posisi Anda di Halaman 1. Tanpa ngelag, tanpa celah hacker, tanpa ampun.</p>
+        <p>Website lambat adalah bunuh diri bisnis. Kami merakit senjata digital (HTML Murni) membuka Peluang Besar mengunci posisi Anda di Halaman 1. Tanpa ngelag, tanpa celah hacker, tanpa ampun.</p>
         
         <div class="btn-beam-wrapper">
             <a href="https://wa.me/6285283212205?text=Halo%20Mastermind,%20Saya%20Siap%20Mendominasi%20Google." class="btn-beam" aria-label="Konsultasi Dominasi Google via WhatsApp">
@@ -257,7 +254,7 @@
                     <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
                 <h4>Zero-Second Loading</h4>
-                <p>Singkirkan platform lambat. Teknologi Titan Protocol mengeksekusi website Anda di bawah 1 detik. Pelanggan klik, langsung tampil.</p>
+                <p>Singkirkan platform lambat. Teknologi Titan Protocol mengeksekusi website Anda di bawah 1,5 detik. Pelanggan klik, langsung tampil.</p>
             </div>
             <div class="glass-card">
                 <div class="f-icon">
@@ -345,7 +342,7 @@
             </a>
 
             <a href="https://takoyaki-banyumanik.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Takoyaki"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Takoyaki"></div>
                 <div class="vault-content">
                     <span class="v-tag">🍡 CULINARY FRANCHISE</span>
                     <h3>Takoyaki Street Food</h3>
@@ -365,7 +362,7 @@
             </a>
 
             <a href="https://pintu-harmonika.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1504917595217-d4ce5eb928cca?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Pintu Harmonika"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Pintu Harmonika"></div>
                 <div class="vault-content">
                     <span class="v-tag">🏭 INDUSTRIAL & RETAIL</span>
                     <h3>Pabrikasi Pintu Harmonika</h3>
@@ -415,7 +412,7 @@
             </a>
 
             <a href="https://ciledug-rent-car-luxury.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1549317336-206569e8475c?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Luxury Car Rent"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1503375822723-b04940024f2b?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Luxury Car Rent"></div>
                 <div class="vault-content">
                     <span class="v-tag vip">🚘 PREMIUM TRANSPORT</span>
                     <h3>Luxury Rent Car Ciledug</h3>
@@ -425,7 +422,7 @@
             </a>
 
             <a href="https://jasa-inspektor-mobil-jakarta-bekasi.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Inspektor Mobil"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1486262715619-67081010ddbe?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Inspektor Mobil"></div>
                 <div class="vault-content">
                     <span class="v-tag">🔍 AUTO INSPECTION</span>
                     <h3>Jasa Inspektor Mobil JKT</h3>
@@ -445,7 +442,7 @@
             </a>
 
             <a href="https://jasa-cutting.vercel.app/" target="_blank" class="vault-item">
-                <div class="vault-img"><img src="https://images.unsplash.com/photo-1581092160562-40aa51e60058?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Laser Cutting CNC"></div>
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=400&auto=format&fit=crop" loading="lazy" decoding="async" width="400" height="200" alt="Laser Cutting CNC"></div>
                 <div class="vault-content">
                     <span class="v-tag">✂️ CNC & LASER CUT</span>
                     <h3>Spesialis Laser Cutting</h3>
@@ -472,7 +469,17 @@
 
     <footer>
         <div class="container">
-            <div class="footer-logo">CILEDUG<span>PROMO</span></div>
+            
+            <div style="margin-bottom: 50px; padding-bottom: 40px; border-bottom: 1px solid var(--glass-border);">
+                <p style="color: var(--text-mute); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-weight: 700;">Sponsored & Official Partner By:</p>
+                <a href="https://ciledugpromo.biz.id" target="_blank" style="display: inline-block; text-decoration: none; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="font-size: 2.5rem; font-weight: 900; color: #fff; letter-spacing: -1px; text-shadow: 0 0 20px rgba(6, 182, 212, 0.4);">
+                        CILEDUG<span style="color: var(--secondary-glow);">PROMO</span><span style="font-size: 1.2rem; font-weight: 300; color: #cbd5e1;">.biz.id</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="footer-logo">TITAN<span>LEGACY</span></div>
             <p class="footer-address">Markas Komando: Jalan Kav. Setiabudi Kreo, Larangan, Ciledug, Tangerang 15156</p>
             
             <div class="seo-hidden-text">
