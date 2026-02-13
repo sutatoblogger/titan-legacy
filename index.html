@@ -20,7 +20,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="TITAN LEGACY | Digital Agency Premium Ciledug">
     <meta property="og:description" content="Website lambat membunuh bisnis Anda. Saatnya upgrade ke Titan Protocol (HTML Murni). Garansi Speed 100 & SEO Halaman 1.">
-    <meta property="og:image" content="https://placehold.co/1200x630/000212/06b6d4.png?text=TITAN+LEGACY+AGENCY">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop">
     <meta property="og:url" content="https://titan-legacy.vercel.app/">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
@@ -44,13 +44,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            font-family: 'Outfit', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Outfit', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
         /* --- VISUAL 1: GRID & FLOATING ORBS (AURA BUILD) --- */
         .grid-bg {
@@ -58,8 +52,7 @@
             background-image: 
                 linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            z-index: -3; pointer-events: none;
+            background-size: 60px 60px; z-index: -3; pointer-events: none;
             mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
             -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
         }
@@ -86,8 +79,7 @@
         /* --- NAVBAR GLASSMORPHISM --- */
         .navbar {
             padding: 15px 0; display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid var(--glass-border);
-            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000;
             background: rgba(0, 2, 18, 0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
         }
         .brand { font-weight: 900; font-size: 1.5rem; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
@@ -154,7 +146,7 @@
         .glass-card h4 { color: #fff; margin-bottom: 12px; font-weight: 800; font-size: 1.3rem; }
         .glass-card p { font-size: 1rem; color: var(--text-mute); }
 
-        /* --- THE TITAN VAULT (PORTFOLIO GRID) --- */
+        /* --- THE TITAN VAULT (17 PORTFOLIO GRID) --- */
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 3rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 15px; color: #fff; }
         
@@ -162,9 +154,9 @@
         
         .vault-item {
             background: #050505; border: 1px solid var(--glass-border); border-radius: 20px;
-            overflow: hidden; position: relative; transition: 0.4s; group; display: flex; flex-direction: column;
+            overflow: hidden; position: relative; transition: 0.4s; display: flex; flex-direction: column;
         }
-        .vault-item:hover { border-color: var(--primary-glow); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(124, 58, 237, 0.15); }
+        .vault-item:hover { border-color: var(--primary-glow); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(124, 58, 237, 0.15); z-index: 10;}
         
         .vault-img { width: 100%; height: 200px; background: #111; overflow: hidden; position: relative; }
         .vault-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
@@ -184,8 +176,8 @@
         .v-tag { font-size: 0.7rem; padding: 4px 10px; border-radius: 4px; background: rgba(255,255,255,0.05); color: var(--secondary-glow); display: inline-block; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
         .v-tag.vip { background: rgba(212, 175, 55, 0.1); color: var(--gold-vip); border: 1px solid rgba(212, 175, 55, 0.3); }
         
-        .vault-content h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
-        .vault-content p { font-size: 0.9rem; color: var(--text-mute); margin-bottom: 20px; }
+        .vault-content h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 8px; line-height: 1.2;}
+        .vault-content p { font-size: 0.9rem; color: var(--text-mute); margin-bottom: 20px; line-height: 1.5;}
         .vault-btn { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: #fff; text-transform: uppercase; transition: 0.3s; }
         .vault-item:hover .vault-btn { color: var(--secondary-glow); }
 
@@ -273,21 +265,21 @@
                     <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
                 <h4>Zero-Second Loading</h4>
-                <p>Singkirkan Wordpress yang berat. Teknologi Titan Protocol mengeksekusi website Anda di bawah 1 detik. Pelanggan klik, langsung tampil.</p>
+                <p>Singkirkan platform lambat. Teknologi Titan Protocol mengeksekusi website Anda di bawah 1 detik. Pelanggan klik, langsung tampil.</p>
             </div>
             <div class="glass-card">
                 <div class="f-icon">
                     <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
                 <h4>SEO Siluman (God-Tier)</h4>
-                <p>Arsitektur kode yang sangat dicintai algoritma Google Spider. Otomatis mendominasi pencarian lokal tanpa perlu bayar iklan mahal.</p>
+                <p>Arsitektur kode yang sangat dicintai algoritma Google Spider. Otomatis mendominasi pencarian lokal tanpa bayar iklan mahal.</p>
             </div>
             <div class="glass-card">
                 <div class="f-icon">
                     <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.956 11.956 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                 </div>
                 <h4>Absolute Security</h4>
-                <p>Tanpa database SQL, tanpa celah Plugin. Website Anda kebal dari serangan Hacker, Deface, maupun Malware selamanya.</p>
+                <p>Tanpa database usang, tanpa celah celah sistem. Website Anda kebal dari serangan Deface maupun Malware selamanya.</p>
             </div>
         </div>
     </main>
@@ -295,79 +287,177 @@
     <section class="container" id="portfolio">
         <div class="section-header">
             <h2 class="gradient-text">The Titan Vault</h2>
-            <p style="color:var(--text-mute); font-size:1.2rem; max-width:600px; margin:0 auto;">Koleksi Mahakarya Digital (Score 100). Bukti nyata bahwa kami tidak hanya mendesain, kami merekayasa mesin uang untuk klien.</p>
+            <p style="color:var(--text-mute); font-size:1.2rem; max-width:600px; margin:0 auto;">Koleksi Mahakarya Digital. Bukti nyata bahwa kami tidak sekadar mendesain, kami merekayasa <strong>mesin pencetak omzet</strong> untuk bisnis Anda.</p>
         </div>
 
         <div class="vault-grid">
             
-            <a href="https://aura-aesthetic-ciledug.vercel.app/" target="_blank" class="vault-item" aria-label="Lihat Aura Aesthetic">
-                <div class="vault-img">
-                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?q=80&w=600&auto=format&fit=crop" alt="Aesthetic Clinic Web" loading="lazy" width="400" height="200">
-                </div>
+            <a href="https://aura-aesthetic-ciledug.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Klinik Kecantikan"></div>
                 <div class="vault-content">
                     <span class="v-tag vip">👑 VIP LUXURY NICHE</span>
                     <h3>Aura Aesthetic Clinic</h3>
-                    <p>Desain Glassmorphism mewah untuk Klinik Kecantikan kelas atas. Target: Owner Skincare & Medis.</p>
+                    <p>Desain Glassmorphism mewah untuk Klinik Kecantikan kelas atas. Menampilkan aura elegan dan berkelas medis.</p>
                     <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
                 </div>
             </a>
 
-            <a href="https://titan-mechanic-ciledug.vercel.app/" target="_blank" class="vault-item" aria-label="Lihat Titan Mechanic">
-                <div class="vault-img">
-                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=600&auto=format&fit=crop" alt="Bengkel Web" loading="lazy" width="400" height="200">
-                </div>
-                <div class="vault-content">
-                    <span class="v-tag">⚙️ AUTOMOTIVE B2C</span>
-                    <h3>Titan Mechanic (Bengkel)</h3>
-                    <p>Landing page buas untuk menguasai kata kunci "Bengkel Terdekat". Booking service otomatis via WA.</p>
-                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
-                </div>
-            </a>
-
-            <a href="https://titan-culinary-ciledug.vercel.app/" target="_blank" class="vault-item" aria-label="Lihat Titan Culinary">
-                <div class="vault-img">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop" alt="Resto Web" loading="lazy" width="400" height="200">
-                </div>
-                <div class="vault-content">
-                    <span class="v-tag">🍔 F&B CATERING</span>
-                    <h3>Titan Culinary (Resto)</h3>
-                    <p>Desain lezat yang membangkitkan selera. Fitur e-Menu PDF & integrasi Gofood/Grabfood lokal.</p>
-                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
-                </div>
-            </a>
-
-            <a href="https://aura-teknisi-ciledug.vercel.app/" target="_blank" class="vault-item" aria-label="Lihat Aura Teknisi">
-                <div class="vault-img">
-                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600&auto=format&fit=crop" alt="Teknisi Web" loading="lazy" width="400" height="200">
-                </div>
+            <a href="https://aura-teknisi-ciledug.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Service AC"></div>
                 <div class="vault-content">
                     <span class="v-tag">🛠️ HOME SERVICES</span>
-                    <h3>Aura Teknisi (Service AC)</h3>
-                    <p>Sistem penangkap sinyal darurat (AC Mati/Kulkas Rusak). Tombol merah 24 Jam langsung bunyi di HP teknisi.</p>
+                    <h3>Aura Teknisi Mandiri</h3>
+                    <p>Sistem penangkap sinyal darurat (AC/Kulkas Rusak). Tombol panggil 24 jam langsung terhubung ke teknisi lapangan.</p>
                     <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
                 </div>
             </a>
 
-            <a href="https://jasa-rangka-baja-area-jakarta-sekitarnya.vercel.app/" target="_blank" class="vault-item" aria-label="Lihat Project Baja">
-                <div class="vault-img">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=600&auto=format&fit=crop" alt="Konstruksi Baja Web" loading="lazy" width="400" height="200">
-                </div>
+            <a href="https://aura-culinary-demo.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Culinary Resto"></div>
                 <div class="vault-content">
-                    <span class="v-tag">🏗️ B2B CONSTRUCTION</span>
-                    <h3>Jasa Rangka Baja JKT</h3>
-                    <p>Website high-ticket area Jakarta. Strategi SEO Twin-Engine yang menghasilkan prospek ratusan juta rupiah.</p>
+                    <span class="v-tag">🍔 F&B / RESTAURANT</span>
+                    <h3>Aura Culinary Resto</h3>
+                    <p>Desain menggugah selera untuk dominasi kuliner. Lengkap dengan integrasi menu dan tombol Gofood/Grabfood lokal.</p>
                     <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
                 </div>
             </a>
 
-            <a href="https://laundry-express-surabaya.vercel.app/" target="_blank" class="vault-item" aria-label="Lihat Project Laundry">
-                <div class="vault-img">
-                    <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=600&auto=format&fit=crop" alt="Laundry Web" loading="lazy" width="400" height="200">
+            <a href="https://bengkel-mobil-tangerang-24jam.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Bengkel Mobil"></div>
+                <div class="vault-content">
+                    <span class="v-tag">⚙️ AUTOMOTIVE B2C</span>
+                    <h3>Bengkel Mobil 24 Jam</h3>
+                    <p>Mesin pencari uang untuk mekanik darurat. SEO lokal terstruktur untuk kata kunci "Bengkel Terdekat Tangerang".</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
                 </div>
+            </a>
+
+            <a href="https://laundry-express-surabaya.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Laundry Express"></div>
                 <div class="vault-content">
                     <span class="v-tag">👕 LOCAL RETAIL</span>
                     <h3>Laundry Express SBY</h3>
-                    <p>Penguasa Local SEO pencarian "Laundry Terdekat". Desain clean, responsif, omzet harian meroket.</p>
+                    <p>Penguasa SEO pencarian laundry premium. Desain modern yang meningkatkan kepercayaan pelanggan antar-jemput pakaian.</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://solusi-bebas-diabetes-alami.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Herbal Diabetes"></div>
+                <div class="vault-content">
+                    <span class="v-tag">🌿 HEALTH & WELLNESS</span>
+                    <h3>Solusi Diabetes Alami</h3>
+                    <p>Sales letter (Copywriting) konversi tinggi khusus produk herbal. Membimbing psikologi pengunjung untuk segera membeli.</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://takoyaki-banyumanik.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1541592102400-33630f146ee5?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Takoyaki"></div>
+                <div class="vault-content">
+                    <span class="v-tag">🍡 CULINARY FRANCHISE</span>
+                    <h3>Takoyaki Street Food</h3>
+                    <p>Tampilan fun & menggoda untuk bisnis jajanan jalanan. Membantu kemitraan franchise/outlet berkembang pesat secara online.</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://rohim-sedot-wc.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Sedot WC"></div>
+                <div class="vault-content">
+                    <span class="v-tag">🚽 SANITATION EXPERT</span>
+                    <h3>Ahli Sedot WC Darurat</h3>
+                    <p>Layout taktis yang dirancang khusus untuk kondisi darurat. SEO lokal untuk menguasai kata kunci "Sedot WC Mampet".</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://pintu-harmonika.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Pintu Harmonika"></div>
+                <div class="vault-content">
+                    <span class="v-tag">🏭 INDUSTRIAL & RETAIL</span>
+                    <h3>Pabrikasi Pintu Harmonika</h3>
+                    <p>Platform B2B untuk bisnis fabrikasi. Tampilan profesional yang meyakinkan pemilik ruko untuk melakukan tender.</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://jasa-rangka-baja-area-jakarta-sekitarnya.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Rangka Baja"></div>
+                <div class="vault-content">
+                    <span class="v-tag">🏗️ B2B CONSTRUCTION</span>
+                    <h3>Konstruksi Rangka Baja</h3>
+                    <p>Website high-ticket area Jakarta. Menampilkan portofolio proyek besar untuk menghasilkan prospek bernilai ratusan juta rupiah.</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://jasa-injeksi-beton-waterproofing.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Injeksi Beton"></div>
+                <div class="vault-content">
+                    <span class="v-tag">🧱 HEAVY MAINTENANCE</span>
+                    <h3>Injeksi Beton & Waterproof</h3>
+                    <p>Fokus pada penyelesaian masalah kebocoran fatal. Desain yang memberikan rasa aman (Trust) bagi pemilik gedung bertingkat.</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://jasa-saluran-mampet.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Saluran Mampet"></div>
+                <div class="vault-content">
+                    <span class="v-tag">🔧 PLUMBING REPAIR</span>
+                    <h3>Spesialis Saluran Mampet</h3>
+                    <p>Konversi tinggi untuk layanan rumah tangga mendesak. Tombol WhatsApp yang selalu terlihat (Sticky) untuk order seketika.</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://ciledug-bio.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Bio Link"></div>
+                <div class="vault-content">
+                    <span class="v-tag">🔗 DIGITAL PROFILING</span>
+                    <h3>Titan Bio-Link Matrix</h3>
+                    <p>Halaman navigasi cerdas pengganti Linktree. Sangat cepat, elegan, dan menaikkan gengsi profil sosial media Anda (IG/TikTok).</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://ciledug-rent-car-luxury.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1563720225384-9a0f40b2a0c6?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Luxury Car Rent"></div>
+                <div class="vault-content">
+                    <span class="v-tag vip">🚘 PREMIUM TRANSPORT</span>
+                    <h3>Luxury Rent Car Ciledug</h3>
+                    <p>Showroom digital khusus penyewaan mobil premium (Alphard/Mercedes). Visual garang yang memikat klien korporat/VIP.</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://jasa-inspektor-mobil-jakarta-bekasi.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1486262715619-67081010ddbe?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Inspektor Mobil"></div>
+                <div class="vault-content">
+                    <span class="v-tag">🔍 AUTO INSPECTION</span>
+                    <h3>Jasa Inspektor Mobil JKT</h3>
+                    <p>Website penanam "Trust". Membantu pembeli mobil bekas mendapatkan rasa aman dengan laporan mekanik profesional secara real-time.</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://ciledug-interior-kitchen-seat.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Kitchen Set"></div>
+                <div class="vault-content">
+                    <span class="v-tag">🛋️ HOME DECOR</span>
+                    <h3>Interior & Kitchen Set</h3>
+                    <p>Katalog portofolio elegan untuk vendor interior. Meyakinkan warga perumahan mewah untuk menggunakan jasa desain ruangan.</p>
+                    <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </div>
+            </a>
+
+            <a href="https://jasa-cutting.vercel.app/" target="_blank" class="vault-item">
+                <div class="vault-img"><img src="https://images.unsplash.com/photo-1504917595217-d4ce5eb928cca?q=80&w=600&auto=format&fit=crop" loading="lazy" width="400" height="200" alt="Laser Cutting CNC"></div>
+                <div class="vault-content">
+                    <span class="v-tag">✂️ CNC & LASER CUT</span>
+                    <h3>Spesialis Laser Cutting</h3>
+                    <p>Platform B2B untuk fabrikasi logam dan akrilik. Dominasi SEO untuk melayani pesanan proyek arsitektur skala besar.</p>
                     <div class="vault-btn">Lihat Live Demo <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
                 </div>
             </a>
@@ -383,7 +473,7 @@
             <div class="profile-text">
                 <h3>SUTATO</h3>
                 <div class="role">DIGITAL ARCHITECT & STRATEGIST</div>
-                <p>"Saya tidak membuat website murahan asal jadi. Saya merakit <strong>Mesin Tempur Digital</strong> yang bekerja keras menyedot klien untuk Anda, 24 jam sehari tanpa henti. Ini bukan biaya pengeluaran, ini adalah Invasi Pasar."</p>
+                <p>"Saya tidak membuat website murahan yang sekadar tampil di internet. Saya merakit <strong>Mesin Tempur Digital</strong> yang bekerja keras menyedot klien untuk Anda, 24 jam sehari tanpa henti. Membangun website bersama Titan System bukan sebuah biaya, melainkan strategi Invasi Pasar."</p>
             </div>
         </div>
     </section>
@@ -415,7 +505,7 @@
       "@type": "ProfessionalService",
       "name": "Ciledug Promo Digital Agency",
       "url": "https://titan-legacy.vercel.app/",
-      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
       "telephone": "+6285283212205",
       "priceRange": "$$$",
       "address": {
